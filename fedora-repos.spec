@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        21
-Release:        0.4
+Version:        22
+Release:        0.1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
@@ -71,6 +71,13 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Tue Jul 08 2014 Dennis Gilmore <dennis@ausil.us> 22-0.1
+- setup for rawhide targeting f22
+
+* Tue Jul 08 2014 Dennis Gilmore <dennis@ausil.us> 21-0.4
+- Require fedora-repos-rawhide from main package
+- have fedora-repos-rawhide obsolete fedora-release-rawhide
+
 * Tue Jul 08 2014 Dennis Gilmore <dennis@ausil.us> 21-0.3
 - remove %%clean and rm in %%install
 - Provides:       fedora-repos(%%{version})
