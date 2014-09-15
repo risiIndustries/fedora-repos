@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        21
-Release:        0.6
+Release:        0.7
 License:        MIT
 Group:          System Environment/Base
 URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
@@ -84,6 +84,9 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Mon Sep 15 2014 Dennis Gilmore <dennis@ausil.us> 21-0.7
+- enable the product repos so anaconda will use them
+
 * Wed Sep 10 2014 Dennis Gilmore <dennis@ausil.us> 21-0.6
 - add repo files for the products
 
