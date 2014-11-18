@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        21
-Release:        0.7
+Release:        1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
@@ -15,13 +15,6 @@ BuildArch:      noarch
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
-
-%package anaconda
-Summary:        Fedora product repo definitions for anaconda
-Requires:       fedora-repos = %{version}-%{release}
-
-%description anaconda
-This package provides the product repo definitions for anaconda.
 
 %package rawhide
 Summary:        Rawhide repo definitions
@@ -73,17 +66,16 @@ done
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
 
-%files anaconda
-%defattr(-,root,root,-)
-%config(noreplace) /etc/yum.repos.d/fedora-cloud.repo
-%config(noreplace) /etc/yum.repos.d/fedora-server.repo
-%config(noreplace) /etc/yum.repos.d/fedora-workstation.repo
-
 %files rawhide
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Tue Nov 18 2014 Dennis Gilmore <dennis@ausil.us> 21-1
+- drop no longer needed fedora-repos-anaconda sup-package
+- disable updates-testing
+- turn on 7 day metadata expire for the fedora repo
+
 * Mon Sep 15 2014 Dennis Gilmore <dennis@ausil.us> 21-0.7
 - enable the product repos so anaconda will use them
 
