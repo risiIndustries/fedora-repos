@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        21
-Release:        1
+Release:        2
 License:        MIT
 Group:          System Environment/Base
 URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
@@ -9,6 +9,7 @@ URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
+Obsoletes:      fedora-repos-anaconda < 21-1
 Obsoletes:      fedora-repos-rawhide < 21-0.4
 Obsoletes:      fedora-release-rawhide <= 21-0.7
 BuildArch:      noarch
@@ -71,6 +72,10 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Sat Nov 22 2014 Dennis Gilmore <dennis@ausil.us> 21-2
+- Obsolete fedora-repos-anaconda < 21-1
+- due to initial confusion over it some people got it installed
+
 * Tue Nov 18 2014 Dennis Gilmore <dennis@ausil.us> 21-1
 - drop no longer needed fedora-repos-anaconda sup-package
 - disable updates-testing
