@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        22
-Release:        0.2
+Release:        0.3
 License:        MIT
 Group:          System Environment/Base
 URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
@@ -9,23 +9,17 @@ URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Requires:       fedora-repos-rawhide = %{version}-%{release}
+Obsoletes:      fedora-repos-rawhide < 22-0.3
+Obsoletes:      fedora-repos-anaconda < 22-0.3
 BuildArch:      noarch
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
 
-%package anaconda
-Summary:        Fedora product repo definitions for anaconda
-Requires:       fedora-repos = %{version}-%{release}
-
-%description anaconda
-This package provides the product repo definitions for anaconda.
-
 %package rawhide
 Summary:        Rawhide repo definitions
 Requires:       fedora-repos = %{version}-%{release}
-Obsoletes:      fedora-release-rawhide <= 21-0.7
+Obsoletes:      fedora-release-rawhide <= 22-0.3
 
 %description rawhide
 This package provides the rawhide repo definitions.
@@ -73,17 +67,14 @@ done
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
 
-%files anaconda
-%defattr(-,root,root,-)
-%config(noreplace) /etc/yum.repos.d/fedora-cloud.repo
-%config(noreplace) /etc/yum.repos.d/fedora-server.repo
-%config(noreplace) /etc/yum.repos.d/fedora-workstation.repo
-
 %files rawhide
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Tue Feb 10 2015 Peter Robinson <pbrobinson@fedoraproject.org> 22.0.3
+- Setup for f22 branch
+
 * Wed Sep 10 2014 Dennis Gilmore <dennis@ausil.us> 22-0.2
 - add repo files for the products
 
