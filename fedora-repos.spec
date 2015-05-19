@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        22
-Release:        0.3
+Release:        1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
@@ -72,6 +72,10 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Tue May 19 2015 Dennis Gilmore <dennis@ausil.us> - 22-1
+- prep for f22 final rhbz#1221726
+- disable updates-testing repo
+
 * Tue Feb 10 2015 Peter Robinson <pbrobinson@fedoraproject.org> 22.0.3
 - Setup for f22 branch
 
