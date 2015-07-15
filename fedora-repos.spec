@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        23
-Release:        0.3
+Release:        0.4
 License:        MIT
 Group:          System Environment/Base
 URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
@@ -72,9 +72,12 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
-* Tue Jul 14 2015 Dennis Gilmore <dennis@ausil.us> - 23-0.3
+* Tue Jul 14 2015 Dennis Gilmore <dennis@ausil.us> - 23-0.4
 - disable rawhide
 - enable fedora, updates, updates-testing
+
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 23-0.3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
 * Wed Feb 18 2015 Dennis Gilmore <dennis@ausil.us> - 23-0.2
 - add the Fedora 23 gpg keys
