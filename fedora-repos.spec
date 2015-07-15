@@ -9,7 +9,7 @@ URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Requires:       fedora-repos-rawhide = %{version}-%{release}
+Obsoletes:      fedora-repos-rawhide <= 23-0.2
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 BuildArch:      noarch
 
@@ -72,8 +72,9 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
-* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 23-0.3
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+* Tue Jul 14 2015 Dennis Gilmore <dennis@ausil.us> - 23-0.3
+- disable rawhide
+- enable fedora, updates, updates-testing
 
 * Wed Feb 18 2015 Dennis Gilmore <dennis@ausil.us> - 23-0.2
 - add the Fedora 23 gpg keys
