@@ -1,10 +1,10 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        23
-Release:        0.4
+Release:        1
 License:        MIT
 Group:          System Environment/Base
-URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
+URL:            https://pagure.io/fedora-repos/
 # tarball is created by running make archive in the git checkout
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
@@ -72,6 +72,12 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Mon Oct 19 2015 Dennis Gilmore <dennis@ausil.us> - 23-1
+- setup for Fedora 23 GA
+- disable updates-testing
+- set fedora repodata expiry at 28 days
+- add all Fedora gpg keys
+
 * Tue Jul 14 2015 Dennis Gilmore <dennis@ausil.us> - 23-0.4
 - disable rawhide
 - enable fedora, updates, updates-testing
