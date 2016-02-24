@@ -1,10 +1,10 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        24
-Release:        0.3
+Version:        25
+Release:        0.1
 License:        MIT
 Group:          System Environment/Base
-URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
+URL:            https://pagure.io/fedora-repos/
 # tarball is created by running make archive in the git checkout
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
@@ -72,11 +72,5 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
-* Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 24-0.3
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
-
-* Mon Oct 19 2015 Dennis Gilmore <dennis@ausil.us> - 24-0.2
-- add all keys f7 up to f24 rhbz#1246701
-
-* Tue Jul 14 2015 Dennis Gilmore <dennis@ausil.us> - 24-0.1
-- Setup for rawhide being f24
+* Tue Feb 23 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.1
+- Setup for rawhide being f25
