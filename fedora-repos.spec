@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        24
-Release:        0.4
+Release:        0.5
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -63,6 +63,7 @@ done
 %defattr(-,root,root,-)
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
+%config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
@@ -72,6 +73,9 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Sat Apr 23 2016 Dennis Gilmore <dennis@ausil.us> - 24-0.5
+- add the fedora cisco openh264 repo
+
 * Tue Feb 23 2016 Dennis Gilmore <dennis@ausil.us> - 24-0.4
 - setup for f24 branching
 - Obsolete older fedora-repos-rawhide
