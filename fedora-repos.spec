@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        25
-Release:        0.4
+Version:        26
+Release:        0.1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -9,7 +9,7 @@ URL:            https://pagure.io/fedora-repos/
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Obsoletes:      fedora-repos-rawhide <= 25-0.3
+Requires:       fedora-repos-rawhide = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 BuildArch:      noarch
 
@@ -73,15 +73,5 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
-* Fri Jul 22 2016 Mohan Boddu <mboddu@redhat.com> - 25-0.4
-- Disable Rawhide
-- Enable fedora, updates, updates-testing
-
-* Fri Jun 06 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.3
-- add the fedora build cisco shipped openh264 repo
-
-* Thu Mar 31 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.2
-- add the Fedora 25 gpg keys
-
-* Tue Feb 23 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.1
-- Setup for rawhide being f25
+* Fri Jul 22 2016 Mohan Boddu <mboddu@redhat.com> - 26-0.1
+- Setup for rawhide being f26
