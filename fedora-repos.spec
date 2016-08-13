@@ -80,7 +80,7 @@ done
 - fix up archmap file
 - add f26 gpg keys
 
-* Tue Jun 01 2016 Dennis Gilmore <dennis@ausil.us> - 24-1
+* Wed Jun 01 2016 Dennis Gilmore <dennis@ausil.us> - 24-1
 - setup for f24 final
 - disable updates-testing
 - set metadata expiry for fedora repo
