@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        23
-Release:        1
+Release:        2
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -72,6 +72,9 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Fri Sep 09 2016 Dennis Gilmore <dennis@ausil.us> - 23-2
+- add the Fedora 25 gpg keys rhbz#1374852
+
 * Mon Oct 19 2015 Dennis Gilmore <dennis@ausil.us> - 23-1
 - setup for Fedora 23 GA
 - disable updates-testing
