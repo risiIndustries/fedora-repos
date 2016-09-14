@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        26
-Release:        0.2
+Release:        0.3
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -73,6 +73,12 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Wed Sep 14 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.6
+- fix up baseurl lines
+- replace f26 gpg key for wrong uid
+- add zypper support rhbz#1373317
+- sign aarch64 with primary key
+
 * Mon Aug 08 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.5
 - fix up archmap file
 - add f26 gpg keys
