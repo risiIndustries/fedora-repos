@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        26
-Release:        0.6
+Release:        0.7
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -9,8 +9,7 @@ URL:            https://pagure.io/fedora-repos/
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Requires:       fedora-repos-rawhide <= 26.0.5
-Obsoletes:      fedora-repos-anaconda < 22-0.3
+Obsoletes:      fedora-repos-rawhide <= 26.0.5
 BuildArch:      noarch
 
 %description
@@ -73,6 +72,9 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Mon Feb 27 2017 Mohan Boddu <mboddu@redhat.com> - 26-0.7
+- Fix up dependencies
+
 * Mon Feb 27 2017 Mohan Boddu <mboddu@redhat.com> - 26-0.6
 - Disable Rawhide
 - Enable fedora, updates, updates-testing
