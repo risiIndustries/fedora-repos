@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        25
-Release:        3 
+Release:        4
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -73,6 +73,10 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Tue May 16 2017 Dennis Gilmore <dennis@ausil.us> - 25-4
+- add the missing Fedora 14 secondary arch key
+- add the new modularity key
+
 * Sun Mar 05 2017 Mohan Boddu <mboddu@redhat.com> - 25-3
 - Updating Fedora 26 key 
 
