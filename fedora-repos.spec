@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        26
-Release:        0.9
+Release:        1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -72,6 +72,12 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Fri Jun 30 2017 Mohan Boddu <mboddu@redhat.com> - 26-1
+- Fix Fedora 14 secondary key
+- Setup for F26 Final
+- Disable updates-testing
+- Set metadata expiry for fedora repo
+
 * Tue May 16 2017 Dennis Gilmore <dennis@ausil.us> - 26-0.9
 - add the missing Fedora 14 secondary arch key
 - add the new modularity key
