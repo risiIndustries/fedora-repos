@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        27
-Release:        0.2
+Version:        28
+Release:        0.1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -73,9 +73,5 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
-* Tue May 16 2017 Dennis Gilmore <dennis@ausil.us> - 27-0.2
-- add the missing Fedora 14 secondary arch key
-- add the new modularity key
-
-* Sat Feb 25 2017 Mohan Boddu <mboddu@redhat.com> - 27-0.1
-- Setup for rawhide being f27
+* Tue Aug 15 2017 Mohan Boddu <mboddu@redhat.com> - 28-0.1
+- Setup for rawhide being f28
