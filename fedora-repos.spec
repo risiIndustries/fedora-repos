@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        27
-Release:        0.3
+Release:        0.4
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -10,6 +10,7 @@ Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
 Requires:       fedora-repos-rawhide <= 27.0.2
+Requires:       fedora-gpg-keys = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 BuildArch:      noarch
 
@@ -24,6 +25,12 @@ Obsoletes:      fedora-release-rawhide <= 22-0.3
 %description rawhide
 This package provides the rawhide repo definitions.
 
+%package -n fedora-gpg-keys
+Summary:        Fedora RPM keys
+Obsoletes:      fedora-release-rawhide <= 22-0.3
+
+%description -n fedora-gpg-keys
+This package provides the RPM signature keys.
 
 %prep
 %setup -q
@@ -65,14 +72,19 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora.repo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
-%dir /etc/pki/rpm-gpg
-/etc/pki/rpm-gpg/*
 
 %files rawhide
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
+%files -n fedora-gpg-keys
+%dir /etc/pki/rpm-gpg
+/etc/pki/rpm-gpg/*
+
 %changelog
+* Fri Sep 22 2017 Patrick Uiterwijk <patrick@puiterwijk.org> - 27-0.4
+- Split out GPG keys into fedora-gpg-keys
+
 * Tue Aug 15 2017 Dennis Gilmore <dennis@ausil.us> - 27-0.3
 - Disable Rawhide
 - Enable fedora, updates, updates-testing
