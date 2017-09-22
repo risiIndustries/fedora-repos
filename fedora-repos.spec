@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        27
-Release:        0.4
+Release:        0.5
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -9,8 +9,8 @@ URL:            https://pagure.io/fedora-repos/
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Requires:       fedora-repos-rawhide <= 27.0.2
 Requires:       fedora-gpg-keys = %{version}-%{release}
+Obsoletes:      fedora-repos-rawhide <= 27-0.4
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 BuildArch:      noarch
 
@@ -82,6 +82,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Fri Sep 22 2017 Patrick Uiterwijk <patrick@puiterwijk.org> - 27-0.5
+- Do not require rawhide, but obsolete it
+
 * Fri Sep 22 2017 Patrick Uiterwijk <patrick@puiterwijk.org> - 27-0.4
 - Split out GPG keys into fedora-gpg-keys
 
