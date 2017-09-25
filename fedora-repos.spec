@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        28
-Release:        0.2
+Release:        0.3%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -84,6 +84,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Mon Sep 25 2017 Stephen Gallagher <sgallagh@redhat.com> - 28-0.3
+- Add a dist tag when building for modules
+
 * Fri Sep 22 2017 Patrick Uiterwijk <patrick@puiterwijk.org> - 28-0.2
 - Split out GPG keys into fedora-gpg-keys
 
