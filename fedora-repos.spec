@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        27
-Release:        0.5
+Release:        0.6%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -82,6 +82,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Mon Sep 25 2017 Stephen Gallagher <sgallagh@redhat.com> - 27-0.6
+- Add a dist tag when building for modules
+
 * Fri Sep 22 2017 Patrick Uiterwijk <patrick@puiterwijk.org> - 27-0.5
 - Do not require rawhide, but obsolete it
 
