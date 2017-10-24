@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        27
-Release:        0.6%{?_module_build:%{?dist}}
+Release:        1%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -82,6 +82,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Mon Oct 23 2017 Mohan Boddu <mboddu@redhat.com> - 27-1
+- Setup for F27 final
+
 * Mon Sep 25 2017 Stephen Gallagher <sgallagh@redhat.com> - 27-0.6
 - Add a dist tag when building for modules
 
