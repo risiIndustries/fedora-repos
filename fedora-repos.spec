@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        28
-Release:        0.3%{?_module_build:%{?dist}}
+Release:        0.4%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -84,6 +84,11 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Mon Feb 19 2018 Mohan Boddu <mboddu@redhat.com> - 28-0.4
+- Disable Rawhide
+- Enable fedora, updates, updates-testing repos
+- Adding Fedora 29 key
+
 * Mon Sep 25 2017 Stephen Gallagher <sgallagh@redhat.com> - 28-0.3
 - Add a dist tag when building for modules
 
