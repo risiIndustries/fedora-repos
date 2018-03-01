@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        26
-Release:        2
+Release:        3
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -72,6 +72,9 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Sat Feb 17 2018 Dennis Gilmore <dennis@ausil.us> - 26-3
+- add the Fedora 29 gpg key
+
 * Fri Jan 05 2018 Mohan Boddu <mboddu@redhat.com> - 26-2
 - Adding F28 Primary Key
 
