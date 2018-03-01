@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        27
-Release:        1%{?_module_build:%{?dist}}
+Release:        2%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -82,6 +82,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Sat Feb 17 2018 Dennis Gilmore <dennis@ausil.us> - 27-2
+- add the Fedora 29 gpg key
+
 * Mon Oct 23 2017 Mohan Boddu <mboddu@redhat.com> - 27-1
 - Setup for F27 final
 
