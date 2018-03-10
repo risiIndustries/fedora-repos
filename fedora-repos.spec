@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        28
-Release:        0.5%{?_module_build:%{?dist}}
+Release:        0.6%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -87,6 +87,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Sat Mar 10 2018 Mohan Boddu <mboddu@redhat.com> - 28-0.6
+- Fix up baseurls in updates-testing-source repo
+
 * Sat Mar 10 2018 Dennis Gilmore <dennis@ausil.us> - 28-0.5
 - backport modular repo changes from rawhide
 
