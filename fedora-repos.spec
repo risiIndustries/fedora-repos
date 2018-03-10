@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        0.1%{?_module_build:%{?dist}}
+Release:        0.2%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -72,17 +72,22 @@ done
 %defattr(-,root,root,-)
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
+%config(noreplace) /etc/yum.repos.d/fedora-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
 
 %files rawhide
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
+%config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
 
 %files -n fedora-gpg-keys
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Sat Feb 24 2018 Dennis Gilmore <dennis@ausil.us> - 29-0.2
+- add changes for the new modular setup
+
 * Mon Feb 19 2018 Mohan Boddu <mboddu@redhat.com> - 29-0.1
 - Setup for rawhide being f29
