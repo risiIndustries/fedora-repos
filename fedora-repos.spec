@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        0.2%{?_module_build:%{?dist}}
+Release:        0.3%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -86,6 +86,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Sat Mar 10 2018 Dennis Gilmore <dennis@ausil.us> - 29-0.3
+- fix up the baseurls in updates-testing
+
 * Sat Feb 24 2018 Dennis Gilmore <dennis@ausil.us> - 29-0.2
 - add changes for the new modular setup
 
