@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        28
-Release:        0.4%{?_module_build:%{?dist}}
+Release:        0.5%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -73,17 +73,23 @@ done
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
+%config(noreplace) /etc/yum.repos.d/fedora-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
 
 %files rawhide
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
+%config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
+
 
 %files -n fedora-gpg-keys
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Sat Mar 10 2018 Dennis Gilmore <dennis@ausil.us> - 28-0.5
+- backport modular repo changes from rawhide
+
 * Mon Feb 19 2018 Mohan Boddu <mboddu@redhat.com> - 28-0.4
 - Disable Rawhide
 - Enable fedora, updates, updates-testing repos
