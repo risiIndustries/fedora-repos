@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        0.3%{?_module_build:%{?dist}}
+Release:        0.4%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -24,6 +24,22 @@ Obsoletes:      fedora-release-rawhide <= 22-0.3
 
 %description rawhide
 This package provides the rawhide repo definitions.
+
+%package modular
+Summary:        Modular repo definitions
+Requires:       fedora-repos = %{version}-%{release}
+
+%description modular
+This package provides the modular repo definitions.
+
+%package rawhide-modular
+Summary:        Rawhide modular repo definitions
+Requires:       fedora-repos = %{version}-%{release}
+Requires:       fedora-repos-rawhide = %{version}-%{release}
+
+%description rawhide-modular
+This package provides the rawhide modular repo definitions.
+
 
 
 %package -n fedora-gpg-keys
@@ -74,11 +90,21 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora.repo
 %config(noreplace) /etc/yum.repos.d/fedora-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
-%config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates-testing.repo
 
 %files rawhide
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
+
+%files modular
+%config(noreplace) /etc/yum.repos.d/fedora-modular.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates-modular.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates-testing-modular.repo
+
+
+
+%files rawhide-modular
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
 
 %files -n fedora-gpg-keys
@@ -86,6 +112,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Mon Mar 12 2018 Stephen Gallagher <sgallagh@redhat.com> - 29-0.4
+- Move modular repos to a subpackage
+
 * Sat Mar 10 2018 Dennis Gilmore <dennis@ausil.us> - 29-0.3
 - fix up the baseurls in updates-testing
 
