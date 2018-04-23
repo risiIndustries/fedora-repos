@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        28
-Release:        0.7%{?_module_build:%{?dist}}
+Release:        1%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -113,6 +113,9 @@ done
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Wed Apr 18 2018 Mohan Boddu <mboddu@redhat.com> - 28-1
+- Setup for F28 Final
+
 * Mon Mar 13 2018 Stephen Gallagher <sgallagh@redhat.com> - 28-0.7
 - Do not require fedora-repos-rawhide on F28
 - Move modular repos to a subpackage
