@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        0.5%{?_module_build:%{?dist}}
+Release:        0.6%{?_module_build:%{?dist}}
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -12,6 +12,8 @@ Requires:       system-release(%{version})
 Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
+Obsoletes:      fedora-repos-modular < 29-0.6
+Provides:       fedora-repos-modular = %{version}-%{release}
 BuildArch:      noarch
 
 %description
@@ -21,25 +23,11 @@ Fedora package repository files for yum and dnf along with gpg public keys
 Summary:        Rawhide repo definitions
 Requires:       fedora-repos = %{version}-%{release}
 Obsoletes:      fedora-release-rawhide <= 22-0.3
+Obsoletes:      fedora-repos-rawhide-modular < 29-0.6
+Provides:       fedora-repos-rawhide-modular = %{version}-%{release}
 
 %description rawhide
 This package provides the rawhide repo definitions.
-
-%package modular
-Summary:        Modular repo definitions
-Requires:       fedora-repos = %{version}-%{release}
-
-%description modular
-This package provides the modular repo definitions.
-
-%package rawhide-modular
-Summary:        Rawhide modular repo definitions
-Requires:       fedora-repos = %{version}-%{release}
-Requires:       fedora-repos-rawhide = %{version}-%{release}
-
-%description rawhide-modular
-This package provides the rawhide modular repo definitions.
-
 
 
 %package -n fedora-gpg-keys
@@ -92,26 +80,26 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing.repo
-
-%files rawhide
-%defattr(-,root,root,-)
-%config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
-
-%files modular
 %config(noreplace) /etc/yum.repos.d/fedora-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing-modular.repo
 
-
-
-%files rawhide-modular
+%files rawhide
+%defattr(-,root,root,-)
+%config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
+
 
 %files -n fedora-gpg-keys
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
 
+
 %changelog
+* Tue Jul 31 2018 Stephen Gallagher <sgallagh@redhat.com> - 29-0.6
+- Merge modular repos into the main package
+- Part of https://fedoraproject.org/wiki/Changes/ModulesForEveryone
+
 * Fri May 18 2018 Mohan Boddu <mboddu@redhat.com> - 29-0.5
 - Baseurl fixes
 
