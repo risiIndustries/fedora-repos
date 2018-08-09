@@ -3,7 +3,6 @@ Name:           fedora-repos
 Version:        29
 Release:        0.6%{?_module_build:%{?dist}}
 License:        MIT
-Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
 # tarball is created by running make archive in the git checkout
 Source:         %{name}-%{version}.tar.bz2
@@ -73,7 +72,6 @@ done
 
 
 %files
-%defattr(-,root,root,-)
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
 %config(noreplace) /etc/yum.repos.d/fedora-modular.repo
@@ -85,7 +83,6 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing-modular.repo
 
 %files rawhide
-%defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
 
