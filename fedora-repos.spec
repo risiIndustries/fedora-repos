@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        0.7%{?_module_build:%{?dist}}
+Release:        0.8%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -146,6 +146,12 @@ done
 
 
 %changelog
+* Tue Aug 14 2018 Mohan Boddu <mboddu@bhujji.com> 29-0.8
+- Disable rawhide, rawhide-modular
+- Enable fedora, update, updates-testing repo
+- Adding fedora 30 key
+- Enable modular repos by default
+
 * Wed Aug  8 2018 Peter Robinson <pbrobinson@fedoraproject.org> 29-0.7
 - Increment and build for source merge change
 

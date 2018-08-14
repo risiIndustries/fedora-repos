@@ -24,7 +24,7 @@ name=Fedora - Modular Rawhide - Developmental packages for the next Fedora relea
 failovermethod=priority
 #baseurl=http://download.fedoraproject.org/pub/fedora/linux/development/rawhide/Modular/$basearch/os/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular&arch=$basearch
-enabled=1
+enabled=0
 metadata_expire=6h
 repo_gpgcheck=0
 type=rpm
