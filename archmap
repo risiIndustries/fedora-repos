@@ -58,3 +58,5 @@ fedora-27-primary: i386 x86_64 armhfp aarch64 ppc64 ppc64le s390x
 fedora-28-primary: i386 x86_64 armhfp aarch64 ppc64 ppc64le s390x
 
 fedora-29-primary: i386 x86_64 armhfp aarch64 ppc64 ppc64le s390x
+
+fedora-30-primary: i386 x86_64 armhfp aarch64 ppc64le s390x

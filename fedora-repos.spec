@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        29
-Release:        0.7%{?_module_build:%{?dist}}
+Version:        30
+Release:        0.1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -146,24 +146,5 @@ done
 
 
 %changelog
-* Wed Aug  8 2018 Peter Robinson <pbrobinson@fedoraproject.org> 29-0.7
-- Increment and build for source merge change
-
-* Tue Jul 31 2018 Stephen Gallagher <sgallagh@redhat.com> - 29-0.6
-- Merge modular repos into the main package
-- Part of https://fedoraproject.org/wiki/Changes/ModulesForEveryone
-
-* Fri May 18 2018 Mohan Boddu <mboddu@redhat.com> - 29-0.5
-- Baseurl fixes
-
-* Mon Mar 12 2018 Stephen Gallagher <sgallagh@redhat.com> - 29-0.4
-- Move modular repos to a subpackage
-
-* Sat Mar 10 2018 Dennis Gilmore <dennis@ausil.us> - 29-0.3
-- fix up the baseurls in updates-testing
-
-* Sat Feb 24 2018 Dennis Gilmore <dennis@ausil.us> - 29-0.2
-- add changes for the new modular setup
-
-* Mon Feb 19 2018 Mohan Boddu <mboddu@redhat.com> - 29-0.1
-- Setup for rawhide being f29
+* Tue Aug 14 2018 Mohan Boddu <mboddu@bhujji.com> - 30-0.1
+- Setup for rawhide being f30
