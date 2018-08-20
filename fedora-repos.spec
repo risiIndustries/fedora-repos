@@ -59,6 +59,7 @@ Source46:       RPM-GPG-KEY-fedora-26-secondary
 Source47:       RPM-GPG-KEY-fedora-27-primary
 Source48:       RPM-GPG-KEY-fedora-28-primary
 Source49:       RPM-GPG-KEY-fedora-29-primary
+Source50:       RPM-GPG-KEY-fedora-30-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -133,6 +134,7 @@ done
 %changelog
 * Mon Aug 20 2018 Mohan Boddu <mboddu@bhujji.com> - 27-3
 - Bump and build for source merge change
+- Add fedora 30 primary key
 
 * Sat Feb 17 2018 Dennis Gilmore <dennis@ausil.us> - 27-2
 - add the Fedora 29 gpg key
