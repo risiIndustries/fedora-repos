@@ -61,11 +61,7 @@ Source48:       RPM-GPG-KEY-fedora-28-primary
 Source49:       RPM-GPG-KEY-fedora-29-primary
 Source50:       RPM-GPG-KEY-fedora-30-primary
 
-Source100:      fedora-modular.repo
-Source101:      fedora-updates-modular.repo
-Source102:      fedora-updates-testing-modular.repo
-Source103:      fedora-rawhide-modular.repo
-Source104:      RPM-GPG-KEY-fedora-modularity
+Source100:      RPM-GPG-KEY-fedora-modularity
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
