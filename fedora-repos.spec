@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        28
-Release:        4%{?_module_build:%{?dist}}
+Release:        5%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org 
 Provides:       fedora-repos(%{version})
@@ -162,6 +162,10 @@ done
 /etc/pki/rpm-gpg/RPM-GPG-KEY-*
 
 %changelog
+* Wed Aug 22 2018 Mohan Boddu <mboddu@bhujji.com> - 28-5
+- Fixing F30 key
+- Fixing the changelog day for 28-0.7
+
 * Mon Aug 20 2018 Mohan Boddu <mboddu@bhujji.com> - 28-4
 - Dist-git is upstream
 - Adding f30 primary key
@@ -175,7 +179,7 @@ done
 * Wed Apr 18 2018 Mohan Boddu <mboddu@redhat.com> - 28-1
 - Setup for F28 Final
 
-* Mon Mar 13 2018 Stephen Gallagher <sgallagh@redhat.com> - 28-0.7
+* Tue Mar 13 2018 Stephen Gallagher <sgallagh@redhat.com> - 28-0.7
 - Do not require fedora-repos-rawhide on F28
 - Move modular repos to a subpackage
 
