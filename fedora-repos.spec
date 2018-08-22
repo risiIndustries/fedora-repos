@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        27
-Release:        3%{?_module_build:%{?dist}}
+Release:        4%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -128,6 +128,9 @@ done
 /etc/pki/rpm-gpg/RPM-GPG-KEY-*
 
 %changelog
+* Wed Aug 22 2018 Mohan Boddu <mboddu@bhujji.com> - 27-4
+- Fixing F30 key
+
 * Mon Aug 20 2018 Mohan Boddu <mboddu@bhujji.com> - 27-3
 - Bump and build for source merge change
 - Add fedora 30 primary key
