@@ -1,13 +1,12 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        0.8%{?_module_build:%{?dist}}
+Release:        0.9%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 Obsoletes:      fedora-repos-modular < 29-0.6
@@ -146,6 +145,9 @@ done
 
 
 %changelog
+* Thu Aug 23 2018 Stephen Gallagher <sgallagh@redhat.com> - 29-0.9
+- Don't pull in fedora-repos-rawhide
+
 * Tue Aug 14 2018 Mohan Boddu <mboddu@bhujji.com> 29-0.8
 - Disable rawhide, rawhide-modular
 - Enable fedora, update, updates-testing repo
