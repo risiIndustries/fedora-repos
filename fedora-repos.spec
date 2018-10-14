@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        0.9%{?_module_build:%{?dist}}
+Release:        1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -145,6 +145,9 @@ done
 
 
 %changelog
+* Sun Oct 14 2018 Mohan Boddu <mboddu@redhat.com> - 29-1
+- Setup for F29 Final
+
 * Thu Aug 23 2018 Stephen Gallagher <sgallagh@redhat.com> - 29-0.9
 - Don't pull in fedora-repos-rawhide
 
