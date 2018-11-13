@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        30
-Release:        0.1%{?_module_build:%{?dist}}
+Release:        0.2%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -68,6 +68,8 @@ Source101:      fedora-updates-modular.repo
 Source102:      fedora-updates-testing-modular.repo
 Source103:      fedora-rawhide-modular.repo
 Source104:      RPM-GPG-KEY-fedora-modularity
+
+Source150:      RPM-GPG-KEY-fedora-iot-2019
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
@@ -146,5 +148,9 @@ done
 
 
 %changelog
+* Tue Nov 13 2018 Mohan Boddu <mboddu@bhujji.com> - 30-0.2
+- Adding fedora-iot-2019 key
+- Enable skip_if_unavailable for cisco-openh264 repo
+
 * Tue Aug 14 2018 Mohan Boddu <mboddu@bhujji.com> - 30-0.1
 - Setup for rawhide being f30
