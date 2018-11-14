@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        1%{?_module_build:%{?dist}}
+Release:        2%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -67,6 +67,8 @@ Source101:      fedora-updates-modular.repo
 Source102:      fedora-updates-testing-modular.repo
 Source103:      fedora-rawhide-modular.repo
 Source104:      RPM-GPG-KEY-fedora-modularity
+
+Source150:      RPM-GPG-KEY-fedora-iot-2019
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
@@ -145,6 +147,9 @@ done
 
 
 %changelog
+* Wed Nov 14 2018 Mohan Boddu <mboddu@redhat.com> - 29-2
+- Adding fedora-iot-2019 key
+
 * Sun Oct 14 2018 Mohan Boddu <mboddu@redhat.com> - 29-1
 - Setup for F29 Final
 
