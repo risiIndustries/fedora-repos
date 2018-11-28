@@ -12,7 +12,6 @@ skip_if_unavailable=True
 
 [fedora-cisco-openh264-debuginfo]
 name=Fedora $releasever openh264 (From Cisco) - $basearch - Debug
-failovermethod=priority
 baseurl=https://codecs.fedoraproject.org/openh264/$releasever/$basearch/debug/
 type=rpm
 enabled=0

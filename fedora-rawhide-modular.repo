@@ -21,7 +21,6 @@
 
 [rawhide-modular]
 name=Fedora - Modular Rawhide - Developmental packages for the next Fedora release
-failovermethod=priority
 #baseurl=http://download.fedoraproject.org/pub/fedora/linux/development/rawhide/Modular/$basearch/os/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular&arch=$basearch
 enabled=1
@@ -34,7 +33,6 @@ skip_if_unavailable=False
 
 [rawhide-modular-debuginfo]
 name=Fedora - Modular Rawhide - Debug
-failovermethod=priority
 #baseurl=http://download.fedoraproject.org/pub/fedora/linux/development/rawhide/Modular/$basearch/debug/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular-debug&arch=$basearch
 enabled=0
@@ -46,7 +44,6 @@ skip_if_unavailable=False
 
 [rawhide-modular-source]
 name=Fedora - Modular Rawhide - Source
-failovermethod=priority
 #baseurl=http://download.fedoraproject.org/pub/fedora/linux/development/rawhide/Modular/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular-source&arch=$basearch
 enabled=0
