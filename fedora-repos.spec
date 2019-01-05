@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        30
-Release:        0.2%{?_module_build:%{?dist}}
+Release:        0.3%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -148,6 +148,9 @@ done
 
 
 %changelog
+* Sat Jan 05 2019 Kevin Fenzi <kevin@scrye.com> - 30-0.3}
+- Add fedora-7-primary to archmap. Fixes bug #1531957
+
 * Tue Nov 13 2018 Mohan Boddu <mboddu@bhujji.com> - 30-0.2
 - Adding fedora-iot-2019 key
 - Enable skip_if_unavailable for cisco-openh264 repo
