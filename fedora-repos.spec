@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        30
-Release:        0.3%{?_module_build:%{?dist}}
+Release:        0.4%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -62,6 +62,7 @@ Source47:       RPM-GPG-KEY-fedora-27-primary
 Source48:       RPM-GPG-KEY-fedora-28-primary
 Source49:       RPM-GPG-KEY-fedora-29-primary
 Source50:       RPM-GPG-KEY-fedora-30-primary
+Source51:       RPM-GPG-KEY-fedora-31-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -148,6 +149,9 @@ done
 
 
 %changelog
+* Mon Feb 18 2019 Mohan Boddu <mboddu@bhujji.com> - 30-0.4
+- Adding F31 key
+
 * Sat Jan 05 2019 Kevin Fenzi <kevin@scrye.com> - 30-0.3
 - Add fedora-7-primary to archmap. Fixes bug #1531957
 - Remove failovermethod option in repos (augenauf(Florian H))
