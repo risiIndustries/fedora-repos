@@ -148,8 +148,9 @@ done
 
 
 %changelog
-* Sat Jan 05 2019 Kevin Fenzi <kevin@scrye.com> - 30-0.3}
+* Sat Jan 05 2019 Kevin Fenzi <kevin@scrye.com> - 30-0.3
 - Add fedora-7-primary to archmap. Fixes bug #1531957
+- Remove failovermethod option in repos (augenauf(Florian H))
 
 * Tue Nov 13 2018 Mohan Boddu <mboddu@bhujji.com> - 30-0.2
 - Adding fedora-iot-2019 key
