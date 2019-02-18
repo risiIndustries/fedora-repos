@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        2%{?_module_build:%{?dist}}
+Release:        3%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -61,6 +61,7 @@ Source47:       RPM-GPG-KEY-fedora-27-primary
 Source48:       RPM-GPG-KEY-fedora-28-primary
 Source49:       RPM-GPG-KEY-fedora-29-primary
 Source50:       RPM-GPG-KEY-fedora-30-primary
+Source51:       RPM-GPG-KEY-fedora-31-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -147,6 +148,9 @@ done
 
 
 %changelog
+* Mon Feb 18 2019 Mohan Boddu <mboddu@bhujji.com> - 29-3
+- Adding F31 key
+
 * Wed Nov 14 2018 Mohan Boddu <mboddu@redhat.com> - 29-2
 - Adding fedora-iot-2019 key
 
