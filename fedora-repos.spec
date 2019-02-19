@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        30
-Release:        0.4%{?_module_build:%{?dist}}
+Version:        31
+Release:        0.1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -149,6 +149,9 @@ done
 
 
 %changelog
+* Tue Feb 19 2019 Tomas Hrcka <thrcka@redhat.com> - 31-0.1
+- Setup for rawhide being f31
+
 * Mon Feb 18 2019 Mohan Boddu <mboddu@bhujji.com> - 30-0.4
 - Adding F31 key
 
