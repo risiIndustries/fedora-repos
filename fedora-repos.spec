@@ -7,7 +7,6 @@ URL:            https://fedoraproject.org/
 
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 Obsoletes:      fedora-repos-modular < 29-0.6
@@ -164,6 +163,7 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 %changelog
 * Mon Mar 04 2019 Sinny Kumari <skumari@redhat.com> - 30-0.6
 - Create fedora-repos-ostree sub-package
+- Dont pull in fedora-repos-rawhide (mohanboddu)
 
 * Tue Feb 19 2019 Tomas Hrcka <thrcka@redhat.com> - 30-0.5
 - Disable rawhide and rawhide-modular
