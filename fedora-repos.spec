@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        3%{?_module_build:%{?dist}}
+Release:        4%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -148,6 +148,9 @@ done
 
 
 %changelog
+* Wed Mar 13 2019 Mohan Boddu <mboddu@bhujji.com> - 29-4
+- Adding F31 archmap (BZ #1688460)
+
 * Mon Feb 18 2019 Mohan Boddu <mboddu@bhujji.com> - 29-3
 - Adding F31 key
 
