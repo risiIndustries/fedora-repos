@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        28
-Release:        6%{?_module_build:%{?dist}}
+Release:        7%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org 
 Provides:       fedora-repos(%{version})
@@ -163,6 +163,9 @@ done
 /etc/pki/rpm-gpg/RPM-GPG-KEY-*
 
 %changelog
+* Wed Mar 13 2019 Mohan Boddu <mboddu@bhujji.com> - 28-7
+- Adding F31 archmap (BZ #1688460)
+
 * Mon Feb 18 2019 Mohan Boddu <mboddu@bhujji.com> - 28-6
 - Adding F31 key
 
