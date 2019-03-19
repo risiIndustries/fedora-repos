@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        29
-Release:        4%{?_module_build:%{?dist}}
+Release:        5%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -70,6 +70,7 @@ Source103:      fedora-rawhide-modular.repo
 Source104:      RPM-GPG-KEY-fedora-modularity
 
 Source150:      RPM-GPG-KEY-fedora-iot-2019
+Source151:      fedora.conf
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
@@ -91,6 +92,14 @@ Obsoletes:      fedora-release-rawhide <= 22-0.3
 
 %description -n fedora-gpg-keys
 This package provides the RPM signature keys.
+
+
+%package ostree
+Summary:        OSTree specific files
+
+%description ostree
+This package provides ostree specfic files like remote config from
+where client's system will pull OSTree updates.
 
 
 %prep
@@ -125,6 +134,10 @@ for file in %{_sourcedir}/fedora*repo ; do
   install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
 done
 
+# Install ostree remote config
+install -d -m 755 $RPM_BUILD_ROOT/etc/ostree/remotes.d/
+install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
+
 
 %files
 %dir /etc/yum.repos.d
@@ -146,8 +159,15 @@ done
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/RPM-GPG-KEY-*
 
+%files ostree
+%dir /etc/ostree/remotes.d/
+/etc/ostree/remotes.d/fedora.conf
+
 
 %changelog
+* Tue Mar 19 2019 Sinny Kumari <skumari@redhat.com> - 29-5
+- Create fedora-repos-ostree sub-package
+
 * Wed Mar 13 2019 Mohan Boddu <mboddu@bhujji.com> - 29-4
 - Adding F31 archmap (BZ #1688460)
 
