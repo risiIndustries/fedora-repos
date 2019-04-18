@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        30
-Release:        0.6%{?_module_build:%{?dist}}
+Release:        1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -161,6 +161,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Thu Apr 18 2019 Mohan Boddu <mboddu@bhujji.com> - 30-1
+- Setup for F30 Final
+
 * Mon Mar 04 2019 Sinny Kumari <skumari@redhat.com> - 30-0.6
 - Create fedora-repos-ostree sub-package
 - Dont pull in fedora-repos-rawhide (mohanboddu)
