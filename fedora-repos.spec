@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        31
-Release:        0.3%{?_module_build:%{?dist}}
+Version:        32
+Release:        0.1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -63,6 +63,7 @@ Source48:       RPM-GPG-KEY-fedora-28-primary
 Source49:       RPM-GPG-KEY-fedora-29-primary
 Source50:       RPM-GPG-KEY-fedora-30-primary
 Source51:       RPM-GPG-KEY-fedora-31-primary
+Source52:       RPM-GPG-KEY-fedora-32-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -166,6 +167,10 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Tue Aug 13 2019 Mohan Boddu <mboddu@bhujji.com> - 32-0.1
+- Adding F32 key
+- Setup for rawhide being f32
+
 * Tue Mar 12 2019 Vít Ondruch <vondruch@redhat.com> - 31-0.3
 - Allow to use newer GPG keys, so Rawhide can be updated after branch.
 
