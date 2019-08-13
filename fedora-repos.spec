@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        31
-Release:        0.3%{?_module_build:%{?dist}}
+Release:        0.4%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -166,6 +166,10 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Tue Aug 13 2019 Tomas Hrcka <thrcka@redhat.com> - 31-0.4
+- Disable rawhide and rawhide-modular
+- Enable fedora, updates, updates-testing repositories
+
 * Tue Mar 12 2019 Vít Ondruch <vondruch@redhat.com> - 31-0.3
 - Allow to use newer GPG keys, so Rawhide can be updated after branch.
 
