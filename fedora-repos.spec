@@ -62,7 +62,7 @@ Source48:       RPM-GPG-KEY-fedora-28-primary
 Source49:       RPM-GPG-KEY-fedora-29-primary
 Source50:       RPM-GPG-KEY-fedora-30-primary
 Source51:       RPM-GPG-KEY-fedora-31-primary
-Source52:       RPM-GPG-KEY-fedora-31-primary
+Source52:       RPM-GPG-KEY-fedora-32-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
