@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        0.1%{?_module_build:%{?dist}}
+Release:        0.2%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -167,6 +167,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Mon Aug 19 2019 Kevin Fenzi <kevin@scrye.com> - 32-0.2
+- Fix f32 key having extra spaces.
+
 * Tue Aug 13 2019 Mohan Boddu <mboddu@bhujji.com> - 32-0.1
 - Adding F32 key
 - Setup for rawhide being f32
