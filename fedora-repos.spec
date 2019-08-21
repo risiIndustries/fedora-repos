@@ -1,13 +1,12 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        31
-Release:        0.5%{?_module_build:%{?dist}}
+Release:        0.6%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
 Provides:       fedora-repos(%{version})
 Requires:       system-release(%{version})
-Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys >= %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 Obsoletes:      fedora-repos-modular < 29-0.6
@@ -167,6 +166,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Wed Aug 21 2019 Peter Robinson <pbrobinson@fedoraproject.org> 31-0.6
+- Don't require fedora-repos-rawhide
+
 * Mon Aug 19 2019 Kevin Fenzi <kevin@scrye.com> - 31-0.5
 - Add Fedora 32 key.
 
