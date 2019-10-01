@@ -2,6 +2,7 @@
 name=Fedora $releasever - $basearch - Test Updates
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-testing-f$releasever&arch=$basearch
 enabled=0
+countme=1
 repo_gpgcheck=0
 type=rpm
 gpgcheck=1
