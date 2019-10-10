@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        31
-Release:        0.6%{?_module_build:%{?dist}}
+Release:        1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -166,6 +166,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Thu Oct 10 2019 Mohan Boddu <mboddu@bhujji.com> - 31-1
+- Setup for F31 Final
+
 * Wed Aug 21 2019 Peter Robinson <pbrobinson@fedoraproject.org> 31-0.6
 - Don't require fedora-repos-rawhide
 
