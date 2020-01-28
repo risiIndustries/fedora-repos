@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        0.2%{?_module_build:%{?dist}}
+Release:        0.3%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -64,6 +64,7 @@ Source49:       RPM-GPG-KEY-fedora-29-primary
 Source50:       RPM-GPG-KEY-fedora-30-primary
 Source51:       RPM-GPG-KEY-fedora-31-primary
 Source52:       RPM-GPG-KEY-fedora-32-primary
+Source53:       RPM-GPG-KEY-fedora-33-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -167,6 +168,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Tue Jan 28 2020 Mohan Boddu <mboddu@bhujji.com> - 32-0.3
+- Adding F33 key
+
 * Mon Aug 19 2019 Kevin Fenzi <kevin@scrye.com> - 32-0.2
 - Fix f32 key having extra spaces.
 
