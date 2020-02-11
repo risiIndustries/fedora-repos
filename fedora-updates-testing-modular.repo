@@ -1,7 +1,7 @@
 [updates-testing-modular]
 name=Fedora Modular $releasever - $basearch - Test Updates
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-f$releasever&arch=$basearch
-enabled=0
+enabled=1
 countme=1
 repo_gpgcheck=0
 type=rpm

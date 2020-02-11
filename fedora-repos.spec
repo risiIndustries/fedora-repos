@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        33
-Release:        0.1%{?_module_build:%{?dist}}
+Version:        32
+Release:        0.5%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -168,8 +168,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
-* Tue Feb 11 2020 Mohan Boddu <mboddu@bhujji.com> - 33-0.1
-- Setup for rawhide being F33
+* Tue Feb 11 2020 Mohan Boddu <mboddu@bhujji.com> - 32-0.5
+- Disable rawhide repos
+- Enable fedora, updates, updates-testing repos
 
 * Tue Feb 11 2020 Mohan Boddu <mboddu@bhujji.com> - 32-0.4
 - Remove baseurl download.fp.o (puiterwijk)

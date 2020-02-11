@@ -1,7 +1,7 @@
 [fedora-modular]
 name=Fedora Modular $releasever - $basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-$releasever&arch=$basearch
-enabled=0
+enabled=1
 countme=1
 #metadata_expire=7d
 repo_gpgcheck=0
