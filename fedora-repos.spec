@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        0.5%{?_module_build:%{?dist}}
+Release:        0.6%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -168,6 +168,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Wed Feb 19 2020 Adam Williamson <awilliam@redhat.com> - 32-0.6
+- Restore baseurl lines, but with example domain
+
 * Tue Feb 11 2020 Mohan Boddu <mboddu@bhujji.com> - 32-0.5
 - Disable rawhide repos
 - Enable fedora, updates, updates-testing repos
