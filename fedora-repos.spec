@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.2%{?_module_build:%{?dist}}
+Release:        0.3%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -168,6 +168,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Sat Feb 22 2020 Neal Gompa <ngompa13@gmail.com> - 33-0.3
+- Enable fedora-cisco-openh264 repo by default
+
 * Wed Feb 19 2020 Adam Williamson <awilliam@redhat.com> - 33-0.2
 - Restore baseurl lines, but with example domain
 
