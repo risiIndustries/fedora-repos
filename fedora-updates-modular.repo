@@ -1,6 +1,5 @@
 [updates-modular]
 name=Fedora Modular $releasever - $basearch - Updates
-failovermethod=priority
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f$releasever&arch=$basearch
 enabled=1
 repo_gpgcheck=0
@@ -12,7 +11,6 @@ skip_if_unavailable=False
 
 [updates-modular-debuginfo]
 name=Fedora Modular $releasever - $basearch - Updates - Debug
-failovermethod=priority
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-debug-f$releasever&arch=$basearch
 enabled=0
 repo_gpgcheck=0
@@ -24,7 +22,6 @@ skip_if_unavailable=False
 
 [updates-modular-source]
 name=Fedora Modular $releasever - Updates Source
-failovermethod=priority
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-source-f$releasever&arch=$basearch
 enabled=0
 repo_gpgcheck=0
