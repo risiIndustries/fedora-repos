@@ -171,6 +171,7 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 * Thu Apr 09 2020 Kalev Lember <klember@redhat.com> - 33-0.4
 - Switch to metalink for fedora-cisco-openh264 and disable repo gpgcheck
   (#1768206)
+- Use the same metadata_expire time for fedora-cisco-openh264 and -debuginfo
 
 * Sat Feb 22 2020 Neal Gompa <ngompa13@gmail.com> - 33-0.3
 - Enable fedora-cisco-openh264 repo by default
