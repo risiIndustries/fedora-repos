@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        0.8%{?_module_build:%{?dist}}
+Release:        1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -167,6 +167,10 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Thu Apr 09 2020 Mohan Boddu <mboddu@bhujji.com> - 32-1
+- Setup for F32 Final
+- Disable testing repos
+
 * Thu Apr 09 2020 Kalev Lember <klember@redhat.com> - 32-0.8
 - Switch to metalink for fedora-cisco-openh264 and disable repo gpgcheck
   (#1768206)
