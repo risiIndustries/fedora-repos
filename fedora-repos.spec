@@ -1,11 +1,11 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        1%{?_module_build:%{?dist}}
+Release:        2%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
-Provides:       fedora-repos(%{version})
+Provides:       fedora-repos(%{version}) = %{release}
 Requires:       system-release(%{version})
 Requires:       fedora-gpg-keys >= %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
@@ -167,6 +167,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Mon Apr 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 32-2
+- Add the release to the fedora-repos(NN) Provides:
+
 * Thu Apr 09 2020 Mohan Boddu <mboddu@bhujji.com> - 32-1
 - Setup for F32 Final
 - Disable testing repos
