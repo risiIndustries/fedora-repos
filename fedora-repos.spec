@@ -1,11 +1,11 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.4%{?_module_build:%{?dist}}
+Release:        0.5%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
-Provides:       fedora-repos(%{version})
+Provides:       fedora-repos(%{version}) = %{release}
 Requires:       system-release(%{version})
 Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys >= %{version}-%{release}
@@ -168,6 +168,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Mon Apr 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 33-0.5
+- Add the release to the fedora-repos(NN) Provides:
+
 * Thu Apr 09 2020 Kalev Lember <klember@redhat.com> - 33-0.4
 - Switch to metalink for fedora-cisco-openh264 and disable repo gpgcheck
   (#1768206)
