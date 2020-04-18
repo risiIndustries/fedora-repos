@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        31
-Release:        2%{?_module_build:%{?dist}}
+Release:        3%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -166,6 +166,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Fri Apr 17 2020 Adam Williamson <awilliam@redhat.com> - 31-3
+- Re-add baseurl lines, but using example domain
+
 * Mon Mar 23 2020 Mohan Boddu <mboddu@bhujji.com> - 31-2
 - Remove the obsolete failovermethod from f31 fedora-repos. (kevin)
 
