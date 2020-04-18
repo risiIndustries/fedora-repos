@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        30
-Release:        3%{?_module_build:%{?dist}}
+Release:        4%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -162,6 +162,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Fri Apr 17 2020 Adam Williamson <awilliam@redhat.com> - 30-4
+- Re-add baseurl lines, but using example domain
+
 * Mon Mar 23 2020 Kevin Fenzi <kevin@scrye.com> - 30-3
 - Drop the failovermethod in f30 modular repos as well.
 
