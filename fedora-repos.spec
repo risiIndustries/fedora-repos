@@ -1,17 +1,15 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.6%{?_module_build:%{?dist}}
+Release:        0.7%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
 Provides:       fedora-repos(%{version}) = %{release}
 Requires:       system-release(%{version})
+Obsoletes:      fedora-repos < 33-0.7
 Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys >= %{version}-%{release}
-Obsoletes:      fedora-repos-anaconda < 22-0.3
-Obsoletes:      fedora-repos-modular < 29-0.6
-Provides:       fedora-repos-modular = %{version}-%{release}
 BuildArch:      noarch
 
 Source1:        archmap
@@ -77,22 +75,36 @@ Source151:      fedora.conf
 Source152:      fedora-compose.conf
 
 %description
-Fedora package repository files for yum and dnf along with gpg public keys
+Fedora package repository files for yum and dnf along with gpg public keys.
+
+%package modular
+Summary:        Fedora modular package repositories
+Requires:       fedora-repos = %{version}-%{release}
+Requires:       fedora-repos-rawhide-modular = %{version}-%{release}
+Obsoletes:      fedora-repos < 33-0.7
+
+%description modular
+This package provides the repo definitions with modular packages.
 
 %package rawhide
 Summary:        Rawhide repo definitions
 Requires:       fedora-repos = %{version}-%{release}
-Obsoletes:      fedora-release-rawhide <= 22-0.3
-Obsoletes:      fedora-repos-rawhide-modular < 29-0.6
-Provides:       fedora-repos-rawhide-modular = %{version}-%{release}
+Obsoletes:      fedora-repos-rawhide < 33-0.7
 
 %description rawhide
 This package provides the rawhide repo definitions.
 
+%package rawhide-modular
+Summary:        Rawhide modular repo definitions
+Requires:       fedora-repos = %{version}-%{release}
+Requires:       fedora-repos-rawhide = %{version}-%{release}
+Obsoletes:      fedora-repos-rawhide < 33-0.7
+
+%description rawhide-modular
+This package provides the rawhide modular repo definitions.
 
 %package -n fedora-gpg-keys
 Summary:        Fedora RPM keys
-Obsoletes:      fedora-release-rawhide <= 22-0.3
 
 %description -n fedora-gpg-keys
 This package provides the RPM signature keys.
@@ -151,12 +163,16 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing.repo
+
+%files modular
 %config(noreplace) /etc/yum.repos.d/fedora-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing-modular.repo
 
 %files rawhide
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
+
+%files rawhide-modular
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
 
 
@@ -171,6 +187,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 /etc/ostree/remotes.d/fedora-compose.conf
 
 %changelog
+* Mon Jun 29 21:10:15 CEST 2020 Igor Raits <ignatenkobrain@fedoraproject.org> - 33-0.7
+- Split modular repos to the separate packages
+
 * Mon Jun 01 2020 Dusty Mabe <dusty@dustymabe.com> - 33-0.6
 - Add fedora compose ostree repo to fedora-repos-ostree
 
