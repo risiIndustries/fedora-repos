@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        2%{?_module_build:%{?dist}}
+Release:        3%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -73,6 +73,7 @@ Source104:      RPM-GPG-KEY-fedora-modularity
 
 Source150:      RPM-GPG-KEY-fedora-iot-2019
 Source151:      fedora.conf
+Source152:      fedora-compose.conf
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
@@ -140,6 +141,7 @@ done
 # Install ostree remote config
 install -d -m 755 $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
+install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 
 %files
 %dir /etc/yum.repos.d
@@ -165,8 +167,12 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 %files ostree
 %dir /etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
+/etc/ostree/remotes.d/fedora-compose.conf
 
 %changelog
+* Mon Jun 01 2020 Dusty Mabe <dusty@dustymabe.com> - 32-3
+- Add fedora compose ostree repo to fedora-repos-ostree
+
 * Mon Apr 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 32-2
 - Add the release to the fedora-repos(NN) Provides:
 
