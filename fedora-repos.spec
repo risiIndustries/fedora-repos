@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        3%{?_module_build:%{?dist}}
+Release:        4%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -75,6 +75,9 @@ Source150:      RPM-GPG-KEY-fedora-iot-2019
 Source151:      fedora.conf
 Source152:      fedora-compose.conf
 
+Source200:      fedora-eln.repo
+Source201:      fedora-eln-modular.repo
+
 %description
 Fedora package repository files for yum and dnf along with gpg public keys
 
@@ -104,6 +107,16 @@ Summary:        OSTree specific files
 This package provides ostree specfic files like remote config from
 where client's system will pull OSTree updates.
 
+
+%package eln
+Summary: ELN repo definitions
+Requires: fedora-repos-rawhide = %{version}-%{release}
+Requires: fedora-repos-rawhide-modular = %{version}-%{release}
+
+%description eln
+This package provides repository files for ELN (Enterprise Linux Next)
+packages that can be installed atop Rawhide. Note that these packages are
+experimental and should not be used in a production environment.
 
 
 %prep
@@ -169,7 +182,15 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 /etc/ostree/remotes.d/fedora.conf
 /etc/ostree/remotes.d/fedora-compose.conf
 
+%files eln
+%config(noreplace) /etc/yum.repos.d/fedora-eln.repo
+%config(noreplace) /etc/yum.repos.d/fedora-eln-modular.repo
+
+
 %changelog
+* Tue Jun 30 2020 Stephen Gallagher <sgallagh@redhat.com> - 32-4
+- Add optional repositories for ELN
+
 * Mon Jun 01 2020 Dusty Mabe <dusty@dustymabe.com> - 32-3
 - Add fedora compose ostree repo to fedora-repos-ostree
 
