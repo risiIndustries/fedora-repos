@@ -1,14 +1,13 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        34
-Release:        0.1%{?_module_build:%{?dist}}
+Version:        33
+Release:        0.10%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
 Provides:       fedora-repos(%{version}) = %{release}
 Requires:       system-release(%{version})
 Obsoletes:      fedora-repos < 33-0.7
-Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys >= %{version}-%{release}
 BuildArch:      noarch
 
@@ -206,8 +205,10 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
-* Mon Aug 10 2020 Tomas Hrcka <thrcka@redhat.com> - 34-0.1
-- Setup for rawhide being F34
+
+* Mon Aug 10 2020 Tomas Hrcka <thrcka@redhat.com> - 33-0.10
+- Disable rawhide repos            
+- Enable fedora, updates, updates-testing repos            
 
 * Thu Aug 06 2020 Mohan Boddu <mboddu@bhujji.com> - 33-0.9
 - Adding F34 key

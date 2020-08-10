@@ -23,7 +23,7 @@
 name=Fedora - Modular Rawhide - Developmental packages for the next Fedora release
 #baseurl=http://download.example/pub/fedora/linux/development/rawhide/Modular/$basearch/os/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular&arch=$basearch
-enabled=1
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
