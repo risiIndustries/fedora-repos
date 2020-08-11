@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.10%{?_module_build:%{?dist}}
+Release:        0.11%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -205,10 +205,12 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Tue Aug 11 2020 Miro Hrončok <mhroncok@redhat.com> - 33-0.11
+- Enable fedora repo
 
 * Mon Aug 10 2020 Tomas Hrcka <thrcka@redhat.com> - 33-0.10
-- Disable rawhide, eln repos            
-- Enable fedora, updates, updates-testing repos            
+- Disable rawhide, eln repos
+- Enable updates, updates-testing repos
 
 * Thu Aug 06 2020 Mohan Boddu <mboddu@bhujji.com> - 33-0.9
 - Adding F34 key
