@@ -207,7 +207,7 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 %changelog
 
 * Mon Aug 10 2020 Tomas Hrcka <thrcka@redhat.com> - 33-0.10
-- Disable rawhide repos            
+- Disable rawhide, eln repos            
 - Enable fedora, updates, updates-testing repos            
 
 * Thu Aug 06 2020 Mohan Boddu <mboddu@bhujji.com> - 33-0.9
