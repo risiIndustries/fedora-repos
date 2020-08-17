@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        31
-Release:        3%{?_module_build:%{?dist}}
+Release:        4%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -63,6 +63,8 @@ Source49:       RPM-GPG-KEY-fedora-29-primary
 Source50:       RPM-GPG-KEY-fedora-30-primary
 Source51:       RPM-GPG-KEY-fedora-31-primary
 Source52:       RPM-GPG-KEY-fedora-32-primary
+Source53:       RPM-GPG-KEY-fedora-33-primary
+Source54:       RPM-GPG-KEY-fedora-34-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -166,6 +168,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Mon Aug 17 2020 Mohan Boddu <mboddu@bhujji.com> - 31-4
+- Adding f33, f34 keys
+
 * Fri Apr 17 2020 Adam Williamson <awilliam@redhat.com> - 31-3
 - Re-add baseurl lines, but using example domain
 
