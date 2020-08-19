@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.1%{?_module_build:%{?dist}}
+Release:        0.2%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -206,6 +206,10 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Wed Aug 19 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.2
+- Enable rebuilding of fedora-repos in ELN
+- Drop unused modularity-specific release information
+
 * Mon Aug 10 2020 Tomas Hrcka <thrcka@redhat.com> - 34-0.1
 - Setup for rawhide being F34
 
