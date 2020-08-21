@@ -20,7 +20,7 @@
 # Version: eln
 
 [eln]
-name=Fedora - ELN - Developmental modular packages for the next Enterprise Linux release
+name=Fedora - ELN - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/Everything/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
 enabled=1

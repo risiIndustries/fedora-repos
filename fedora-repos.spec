@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.2%{?eln:.eln%{eln}}
+Release:        0.3%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -206,6 +206,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Fri Aug 21 2020 Miro Hrončok <mhroncok@redhat.com> - 34-0.3
+- Fix a copy-paste error in eln repo name
+
 * Wed Aug 19 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.2
 - Enable rebuilding of fedora-repos in ELN
 - Drop unused modularity-specific release information
