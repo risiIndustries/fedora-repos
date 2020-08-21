@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.11%{?_module_build:%{?dist}}
+Release:        0.12%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -205,6 +205,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Fri Aug 21 2020 Miro Hrončok <mhroncok@redhat.com> - 33-0.12
+- Fix a copy-paste error in eln repo name
+
 * Tue Aug 11 2020 Miro Hrončok <mhroncok@redhat.com> - 33-0.11
 - Enable fedora repo
 
