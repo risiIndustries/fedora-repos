@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        31
-Release:        4%{?_module_build:%{?dist}}
+Release:        5%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -168,6 +168,9 @@ install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 /etc/ostree/remotes.d/fedora.conf
 
 %changelog
+* Fri Aug 21 2020 Adam Williamson <awilliam@redhat.com> - 31-5
+- Add missing per-arch symlinks for f33, f34 keys
+
 * Mon Aug 17 2020 Mohan Boddu <mboddu@bhujji.com> - 31-4
 - Adding f33, f34 keys
 

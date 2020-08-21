@@ -68,3 +68,7 @@ fedora-iot-2019: i386 x86_64 armhfp aarch64 ppc64le s390x
 fedora-31-primary: i386 x86_64 armhfp aarch64 ppc64le s390x
 
 fedora-32-primary: i386 x86_64 armhfp aarch64 ppc64le s390x
+
+fedora-33-primary: i386 x86_64 armhfp aarch64 ppc64le s390x
+
+fedora-34-primary: i386 x86_64 armhfp aarch64 ppc64le s390x
