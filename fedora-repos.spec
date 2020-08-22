@@ -172,7 +172,6 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 %files
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
-%config(noreplace) /etc/yum.repos.d/fedora-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing.repo
@@ -207,6 +206,8 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 %changelog
 * Fri Aug 21 2020 Miro Hrončok <mhroncok@redhat.com> - 33-0.12
 - Fix a copy-paste error in eln repo name
+- Drop fedora-modular from base repo as it already is in modular subpackage
+- Fixes: rhbz#1869150
 
 * Tue Aug 11 2020 Miro Hrončok <mhroncok@redhat.com> - 33-0.11
 - Enable fedora repo
