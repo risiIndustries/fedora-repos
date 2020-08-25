@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        35
-Release:        0.2%{?eln:.eln%{eln}}
+Release:        0.3%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -16,6 +16,8 @@ Requires:       fedora-repos-rawhide = %{version}-%{release}
 %endif
 Requires:       fedora-gpg-keys >= %{version}-%{release}
 BuildArch:      noarch
+# Required by %%check
+BuildRequires:  gnupg sed
 
 Source1:        archmap
 Source2:        fedora.repo
@@ -273,7 +275,6 @@ for repo in ${enabled_repos[@]}; do
         exit 1
     fi
 done
-
 for repo in ${disabled_repos[@]}; do
     if grep -q 'enabled=1' $RPM_BUILD_ROOT/etc/yum.repos.d/${repo}.repo; then
         echo "ERROR: Repo $repo should have been disabled, but it isn't"
@@ -322,6 +323,7 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
     gpg_lines=$(grep '^gpgkey=' $repo)
     if test -z "$gpg_lines"; then
         echo "ERROR: No gpgkey= lines in $repo"
+
         exit 1
     fi
     while IFS= read -r line; do
@@ -332,6 +334,19 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
     done <<< "$gpg_lines"
 done
 
+# Check arch keys exists on supported architectures
+TMPRING=$(mktemp)
+for VER in %{version} %{rawhide_release} ${rawhide_next}; do
+  echo -n > "$TMPRING"
+  for ARCH in $(sed -ne "s/^fedora-${VER}-primary://p" %{_sourcedir}/archmap)
+  do
+    gpg --no-default-keyring --keyring="$TMPRING" \
+      --import $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-fedora-$VER-$ARCH
+  done
+  # Ensure some arch key was imported
+  gpg --no-default-keyring --keyring="$TMPRING" --list-keys | grep -A 2 '^pub\s'
+done
+rm -f "$TMPRING"
 
 %files
 %dir /etc/yum.repos.d
@@ -370,6 +385,9 @@ done
 
 
 %changelog
+* Fri Feb 19 2021 Petr Menšík <pemensik@redhat.com> - 35-0.3
+- Check arch key imports during build (#1872248)
+
 * Wed Feb 17 2021 Mohan Boddu <mboddu@bhujji.com> - 35-0.2
 - Support $releasever=rawhide on Rawhide (kparal)
 - Make archmap entries mandatory, except symlinks (kparal)
