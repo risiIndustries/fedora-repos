@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        5%{?_module_build:%{?dist}}
+Release:        6%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -189,6 +189,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Tue Aug 25 2020 Adam Williamson <awilliam@redhat.com> - 32-6
+- Add missing per-arch symlinks for F34 key
+
 * Thu Aug 06 2020 Mohan Boddu <mboddu@bhujji.com> - 32-5
 - Adding F34 key
 
