@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.12%{?_module_build:%{?dist}}
+Release:        0.13%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -83,7 +83,6 @@ Fedora package repository files for yum and dnf along with gpg public keys.
 %package modular
 Summary:        Fedora modular package repositories
 Requires:       fedora-repos = %{version}-%{release}
-Requires:       fedora-repos-rawhide-modular = %{version}-%{release}
 Obsoletes:      fedora-repos < 33-0.7
 
 %description modular
@@ -204,6 +203,10 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Mon Sep 14 2020 Miro Hrončok <mhroncok@redhat.com> - 33-0.13
+- Don't require fedora-repos-rawhide-modular from fedora-repos-modular
+- Fixes: rhbz#1878526
+
 * Fri Aug 21 2020 Miro Hrončok <mhroncok@redhat.com> - 33-0.12
 - Fix a copy-paste error in eln repo name
 - Drop fedora-modular from base repo as it already is in modular subpackage
