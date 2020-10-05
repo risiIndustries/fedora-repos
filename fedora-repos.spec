@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        6%{?_module_build:%{?dist}}
+Release:        7%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -19,6 +19,7 @@ Source3:        fedora-updates.repo
 Source4:        fedora-updates-testing.repo
 Source5:        fedora-rawhide.repo
 Source6:        fedora-cisco-openh264.repo
+Source7:        fedora-updates-archive.repo
 
 Source10:       RPM-GPG-KEY-fedora-7-primary
 Source11:       RPM-GPG-KEY-fedora-8-primary
@@ -88,6 +89,15 @@ Requires:       fedora-repos = %{version}-%{release}
 Obsoletes:      fedora-release-rawhide <= 22-0.3
 Obsoletes:      fedora-repos-rawhide-modular < 29-0.6
 Provides:       fedora-repos-rawhide-modular = %{version}-%{release}
+
+%package archive
+Summary:        Fedora updates archive package repository
+Requires:       fedora-repos = %{version}-%{release}
+
+%description archive
+This package provides the repo definition for the updates archive repo.
+It is a package repository that contains any RPM that has made it to
+stable in Bodhi and been available in the Fedora updates repo in the past.
 
 %description rawhide
 This package provides the rawhide repo definitions.
@@ -168,6 +178,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing-modular.repo
 
+%files archive
+%config(noreplace) /etc/yum.repos.d/fedora-updates-archive.repo
+
 %files rawhide
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
@@ -189,6 +202,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Mon Oct 05 2020 Dusty Mabe <dusty@dustymabe.com> - 32-7
+- Add the fedora-repos-archive subpackage.
+
 * Tue Aug 25 2020 Adam Williamson <awilliam@redhat.com> - 32-6
 - Add missing per-arch symlinks for F34 key
 
