@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.4%{?eln:.eln%{eln}}
+Release:        0.5%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -218,6 +218,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Thu Oct 08 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.5
+- Update the ELN repos for the BaseOS and AppStream split
+
 * Mon Oct 05 2020 Dusty Mabe <dusty@dustymabe.com> - 34-0.4
 - Add the fedora-repos-archive subpackage.
 
