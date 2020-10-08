@@ -18,10 +18,46 @@
 #
 # Product: Fedora
 # Version: eln
+[eln-baseos]
+name=Fedora - ELN BaseOS - Developmental packages for the next Enterprise Linux release
+baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/BaseOS/$basearch/os/
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
+enabled=1
+countme=1
+metadata_expire=6h
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False
 
-[eln]
-name=Fedora - ELN - Developmental packages for the next Enterprise Linux release
-baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/Everything/$basearch/os/
+[eln-baseos-debuginfo]
+name=Fedora - ELN BaseOS - Debug
+baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/BaseOS/$basearch/debug/tree
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=eln-debug&arch=$basearch
+enabled=0
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False
+
+[eln-baseos-source]
+name=Fedora - ELN BaseOS - Source
+baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/BaseOS/source/tree/
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=eln-source&arch=$basearch
+enabled=0
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False
+
+
+
+[eln-appstream]
+name=Fedora - ELN AppStream - Developmental packages for the next Enterprise Linux release
+baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/AppStream/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
 enabled=0
 countme=1
@@ -32,9 +68,9 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
 
-[eln-debuginfo]
-name=Fedora - ELN - Debug
-baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/Everything/x86_64/debug/tree
+[eln-appstream-debuginfo]
+name=Fedora - ELN AppStream - Debug
+baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/AppStream/$basearch/debug/tree
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln-debug&arch=$basearch
 enabled=0
 repo_gpgcheck=0
@@ -43,9 +79,9 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
 
-[eln-source]
-name=Fedora - ELN - Source
-baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/Everything/source/tree/
+[eln-appstream-source]
+name=Fedora - ELN AppStream - Source
+baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/AppStream/source/tree/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln-source&arch=$basearch
 enabled=0
 repo_gpgcheck=0

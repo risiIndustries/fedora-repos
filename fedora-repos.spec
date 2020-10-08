@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.14%{?_module_build:%{?dist}}
+Release:        0.15%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -18,6 +18,8 @@ Source4:        fedora-updates-testing.repo
 Source5:        fedora-rawhide.repo
 Source6:        fedora-cisco-openh264.repo
 Source7:        fedora-updates-archive.repo
+Source8:        fedora-eln.repo
+
 
 Source10:       RPM-GPG-KEY-fedora-7-primary
 Source11:       RPM-GPG-KEY-fedora-8-primary
@@ -74,9 +76,6 @@ Source104:      RPM-GPG-KEY-fedora-modularity
 Source150:      RPM-GPG-KEY-fedora-iot-2019
 Source151:      fedora.conf
 Source152:      fedora-compose.conf
-
-Source200:      fedora-eln.repo
-Source201:      fedora-eln-modular.repo
 
 %description
 Fedora package repository files for yum and dnf along with gpg public keys.
@@ -155,6 +154,8 @@ install -m 644 %{_sourcedir}/RPM-GPG-KEY* $RPM_BUILD_ROOT/etc/pki/rpm-gpg/
 #     says "fedora-19-primary: i386 x86_64",
 #     RPM-GPG-KEY-fedora-19-{i386,x86_64} will be symlinked to that key.
 pushd $RPM_BUILD_ROOT/etc/pki/rpm-gpg/
+# Also add a symlink for ELN keys
+ln -s RPM-GPG-KEY-fedora-%{version}-primary RPM-GPG-KEY-fedora-eln-primary
 for keyfile in RPM-GPG-KEY*; do
     key=${keyfile#RPM-GPG-KEY-} # e.g. 'fedora-20-primary'
     arches=$(sed -ne "s/^${key}://p" %{_sourcedir}/archmap) \
@@ -212,10 +213,12 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 %files eln
 %config(noreplace) /etc/yum.repos.d/fedora-eln.repo
-%config(noreplace) /etc/yum.repos.d/fedora-eln-modular.repo
 
 
 %changelog
+* Tue Oct 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 33-0.15
+- Update the ELN repos for the BaseOS and AppStream split
+
 * Mon Oct 05 2020 Dusty Mabe <dusty@dustymabe.com> - 33-0.14
 - Add the fedora-repos-archive subpackage.
 
