@@ -187,6 +187,18 @@ install -d -m 755 $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 install -m 644 %{_sourcedir}/fedora.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remotes.d/
 
+
+%check
+# assert all rawhide/eln repos are set to enabled only when this is rawhide
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
+  %if %{rawhide_release} == %{version}
+    grep 'enabled=1' $repo
+  %else
+    grep 'enabled=1' $repo && exit 1
+  %endif
+done
+
+
 %files
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
