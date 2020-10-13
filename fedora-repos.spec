@@ -1,3 +1,5 @@
+%global rawhide_release 34
+
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
@@ -144,7 +146,7 @@ install -m 644 %{_sourcedir}/RPM-GPG-KEY* $RPM_BUILD_ROOT/etc/pki/rpm-gpg/
 #     RPM-GPG-KEY-fedora-19-{i386,x86_64} will be symlinked to that key.
 pushd $RPM_BUILD_ROOT/etc/pki/rpm-gpg/
 # Also add a symlink for ELN keys
-ln -s RPM-GPG-KEY-fedora-%{version}-primary RPM-GPG-KEY-fedora-eln-primary
+ln -s RPM-GPG-KEY-fedora-%{rawhide_release}-primary RPM-GPG-KEY-fedora-eln-primary
 for keyfile in RPM-GPG-KEY*; do
     key=${keyfile#RPM-GPG-KEY-} # e.g. 'fedora-20-primary'
     arches=$(sed -ne "s/^${key}://p" %{_sourcedir}/archmap) \
