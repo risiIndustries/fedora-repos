@@ -10,6 +10,9 @@ URL:            https://fedoraproject.org/
 Provides:       fedora-repos(%{version}) = %{release}
 Requires:       system-release(%{version})
 Obsoletes:      fedora-repos < 33-0.7
+%if %{rawhide_release} == %{version}
+Requires:       fedora-repos-rawhide = %{version}-%{release}
+%endif
 Requires:       fedora-gpg-keys >= %{version}-%{release}
 BuildArch:      noarch
 
@@ -85,6 +88,9 @@ Fedora package repository files for yum and dnf along with gpg public keys.
 %package modular
 Summary:        Fedora modular package repositories
 Requires:       fedora-repos = %{version}-%{release}
+%if %{rawhide_release} == %{version}
+Requires:       fedora-repos-rawhide-modular = %{version}-%{release}
+%endif
 Obsoletes:      fedora-repos < 33-0.7
 
 %description modular
