@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.15%{?_module_build:%{?dist}}
+Release:        0.16%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -218,6 +218,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Tue Oct 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 33-0.16
+- Ensure that the ELN GPG key always points at the Rawhide key
+
 * Tue Oct 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 33-0.15
 - Update the ELN repos for the BaseOS and AppStream split
 
