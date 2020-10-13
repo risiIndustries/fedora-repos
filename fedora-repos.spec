@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.6%{?eln:.eln%{eln}}
+Release:        0.7%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -220,6 +220,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Tue Oct 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.7
+- Ensure that the ELN GPG key always points at the Rawhide key
+
 * Tue Oct 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.6
 - Drop the fedora-eln-modular.repo
 
