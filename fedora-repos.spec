@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        0.17%{?_module_build:%{?dist}}
+Release:        1%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -218,6 +218,10 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Wed Oct 14 2020 Mohan Boddu <mboddu@bhujji.com> - 33-1
+- Setup for F33 Final
+- Disable testing repos
+
 * Tue Oct 13 2020 Mohan Boddu <mboddu@bhujji.com> - 33-0.17
 - Disable eln repos on non rawhide release (sgallagh)
 
