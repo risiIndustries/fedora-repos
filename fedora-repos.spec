@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.7%{?eln:.eln%{eln}}
+Release:        0.8%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -140,7 +140,6 @@ where client's system will pull OSTree updates.
 %package eln
 Summary: ELN repo definitions
 Requires: fedora-repos-rawhide = %{version}-%{release}
-Requires: fedora-repos-rawhide-modular = %{version}-%{release}
 
 %description eln
 This package provides repository files for ELN (Enterprise Linux Next)
@@ -236,6 +235,9 @@ done
 
 
 %changelog
+* Wed Oct 14 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.8
+- ELN: Drop dependency on fedora-repos-rawhide-modular
+
 * Tue Oct 13 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.7
 - Ensure that the ELN GPG key always points at the Rawhide key
 
