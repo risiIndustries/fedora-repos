@@ -194,7 +194,7 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
   %if %{rawhide_release} == %{version}
     grep 'enabled=1' $repo
   %else
-    grep 'enabled=1' $repo && exit 1
+    grep 'enabled=1' $repo && exit 1 || :
   %endif
 done
 
