@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.8%{?eln:.eln%{eln}}
+Release:        0.9%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -71,6 +71,7 @@ Source51:       RPM-GPG-KEY-fedora-31-primary
 Source52:       RPM-GPG-KEY-fedora-32-primary
 Source53:       RPM-GPG-KEY-fedora-33-primary
 Source54:       RPM-GPG-KEY-fedora-34-primary
+Source55:       RPM-GPG-KEY-fedora-35-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -235,6 +236,9 @@ done
 
 
 %changelog
+* Thu Feb 04 2021 Mohan Boddu <mboddu@bhujji.com> - 34-0.9
+- Adding F35 key
+
 * Wed Oct 14 2020 Stephen Gallagher <sgallagh@redhat.com> - 34-0.8
 - ELN: Drop dependency on fedora-repos-rawhide-modular
 
