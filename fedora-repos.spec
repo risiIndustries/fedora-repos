@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        10%{?_module_build:%{?dist}}
+Release:        11%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -70,6 +70,7 @@ Source51:       RPM-GPG-KEY-fedora-31-primary
 Source52:       RPM-GPG-KEY-fedora-32-primary
 Source53:       RPM-GPG-KEY-fedora-33-primary
 Source54:       RPM-GPG-KEY-fedora-34-primary
+Source55:       RPM-GPG-KEY-fedora-35-primary
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -204,6 +205,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Thu Feb 04 2021 Mohan Boddu <mboddu@bhujji.com> - 32-11
+- Adding F35 key
+
 * Tue Oct 13 2020 Mohan Boddu <mboddu@bhujji.com> - 32-10
 - Disable eln repos on non rawhide release (sgallagh)
 
