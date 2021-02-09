@@ -1,9 +1,9 @@
-%global rawhide_release 34
+%global rawhide_release 35
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.11%{?eln:.eln%{eln}}
+Release:        0.12%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -190,7 +190,7 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 %check
 # assert all rawhide/eln repos are set to enabled only when this is rawhide
-for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
   %if %{rawhide_release} == %{version}
     grep 'enabled=1' $repo
   %else
@@ -236,6 +236,9 @@ done
 
 
 %changelog
+* Tue Feb 09 2021 Tomas Hrcka <thrcka@redhat.com> - 34-0.12
+- Fixing test
+
 * Tue Feb 09 2021 Tomas Hrcka <thrcka@redhat.com> - 34-0.11
 - Disable rawhide repos
 - Enable fedora, updates, updates-testing repos
