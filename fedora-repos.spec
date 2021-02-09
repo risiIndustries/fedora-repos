@@ -237,6 +237,9 @@ done
 
 
 %changelog
+* Tue Feb 09 2021 Mohan Boddu <mboddu@bhujji.com> - 33-3
+- Fixing archmap for F35
+
 * Thu Feb 04 2021 Mohan Boddu <mboddu@bhujji.com> - 33-2
 - Adding F35 key
 
