@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        32
-Release:        11%{?_module_build:%{?dist}}
+Release:        12%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -205,6 +205,9 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %changelog
+* Tue Feb 09 2021 Mohan Boddu <mboddu@bhujji.com> - 32-12
+- Fixing archmap for F35
+
 * Thu Feb 04 2021 Mohan Boddu <mboddu@bhujji.com> - 32-11
 - Adding F35 key
 
