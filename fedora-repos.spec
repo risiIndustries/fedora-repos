@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.9%{?eln:.eln%{eln}}
+Release:        0.10%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -236,6 +236,9 @@ done
 
 
 %changelog
+* Tue Feb 09 2021 Mohan Boddu <mboddu@bhujji.com> - 34-0.10
+- Fixing archmap for F35
+
 * Thu Feb 04 2021 Mohan Boddu <mboddu@bhujji.com> - 34-0.9
 - Adding F35 key
 
