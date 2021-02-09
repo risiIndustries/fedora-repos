@@ -1,9 +1,9 @@
-%global rawhide_release 34
+%global rawhide_release 35
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        34
-Release:        0.10%{?eln:.eln%{eln}}
+Version:        35
+Release:        0.1%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -236,6 +236,9 @@ done
 
 
 %changelog
+* Tue Feb 09 2021 Tomas Hrcka <thrcka@redhat.com> - 35-0.1
+- Setup for rawhide being F35
+
 * Tue Feb 09 2021 Mohan Boddu <mboddu@bhujji.com> - 34-0.10
 - Fixing archmap for F35
 
