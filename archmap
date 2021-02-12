@@ -75,4 +75,8 @@ fedora-34-primary: i386 x86_64 armhfp aarch64 ppc64le s390x
 
 fedora-35-primary: x86_64 armhfp aarch64 ppc64le s390x
 
+fedora-36-primary: x86_64 armhfp aarch64 ppc64le s390x
+
+fedora-rawhide-primary: x86_64 armhfp aarch64 ppc64le s390x
+
 fedora-eln-primary: i386 x86_64 aarch64 ppc64le s390x

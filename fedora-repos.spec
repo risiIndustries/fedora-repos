@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        35
-Release:        0.1%{?eln:.eln%{eln}}
+Release:        0.10%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -72,6 +72,10 @@ Source52:       RPM-GPG-KEY-fedora-32-primary
 Source53:       RPM-GPG-KEY-fedora-33-primary
 Source54:       RPM-GPG-KEY-fedora-34-primary
 Source55:       RPM-GPG-KEY-fedora-35-primary
+Source56:       RPM-GPG-KEY-fedora-36-primary
+# When bumping Rawhide to fN, create N+1 key (and update archmap). (This
+# ensures users have the next future key installed and referenced, even if they
+# don't update very often. This will smooth out Rawhide N->N+1 transition for them).
 
 Source100:      fedora-modular.repo
 Source101:      fedora-updates-modular.repo
@@ -162,7 +166,8 @@ install -m 644 %{_sourcedir}/RPM-GPG-KEY* $RPM_BUILD_ROOT/etc/pki/rpm-gpg/
 #     says "fedora-19-primary: i386 x86_64",
 #     RPM-GPG-KEY-fedora-19-{i386,x86_64} will be symlinked to that key.
 pushd $RPM_BUILD_ROOT/etc/pki/rpm-gpg/
-# Also add a symlink for ELN keys
+# Also add a symlink for Rawhide and ELN keys
+ln -s RPM-GPG-KEY-fedora-%{rawhide_release}-primary RPM-GPG-KEY-fedora-rawhide-primary
 ln -s RPM-GPG-KEY-fedora-%{rawhide_release}-primary RPM-GPG-KEY-fedora-eln-primary
 for keyfile in RPM-GPG-KEY*; do
     key=${keyfile#RPM-GPG-KEY-} # e.g. 'fedora-20-primary'
@@ -177,6 +182,17 @@ done
 ln -s RPM-GPG-KEY-fedora-%{version}-primary RPM-GPG-KEY-%{version}-fedora
 popd
 
+# Adjust Rawhide repo files to include Rawhide+1 GPG key.
+# This is necessary for the period when Rawhide gets bumped to N+1 and packages
+# start to be signed with a newer key. Without having the key specified in the
+# repo file, the system would consider the new packages as untrusted.
+rawhide_next=$((%{rawhide_release}+1))
+for repo in %{_sourcedir}/fedora-rawhide*.repo; do
+    sed -ir "s@^gpgkey=.*@& file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-${rawhide_next}-\$basearch@" \
+        $repo || exit 1
+done
+
+# Install repo files
 install -d -m 755 $RPM_BUILD_ROOT/etc/yum.repos.d
 for file in %{_sourcedir}/fedora*repo ; do
   install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
@@ -196,6 +212,28 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
   %else
     grep 'enabled=1' $repo && exit 1 || :
   %endif
+done
+
+# make sure the Rawhide+1 key wasn't forgotten to be created
+rawhide_next=$((%{rawhide_release}+1))
+if ! test -f $RPM_BUILD_ROOT/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-${rawhide_next}-primary; then
+    echo "ERROR: GPG key for Fedora ${rawhide_next} is not present"
+    exit 1
+fi
+
+# make sure the Rawhide+1 key is present in Rawhide repo files
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
+    gpg_lines=$(grep '^gpgkey=' $repo)
+    if test -z "$gpg_lines"; then
+        echo "ERROR: No gpgkey= lines in $repo"
+        exit 1
+    fi
+    while IFS= read -r line; do
+        if ! echo "$line" | grep -q "RPM-GPG-KEY-fedora-${rawhide_next}"; then
+            echo "ERROR: Fedora ${rawhide_next} GPG key missing in $repo"
+            exit 1
+        fi
+    done <<< "$gpg_lines"
 done
 
 
