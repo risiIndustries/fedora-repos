@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.12%{?eln:.eln%{eln}}
+Release:        0.13%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -236,6 +236,9 @@ done
 
 
 %changelog
+* Thu Feb 11 2021 Adam Williamson <awilliam@redhat.com> - 34-0.13
+- Actually enable fedora repo
+
 * Tue Feb 09 2021 Tomas Hrcka <thrcka@redhat.com> - 34-0.12
 - Fixing test
 
