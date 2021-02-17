@@ -3,7 +3,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        35
-Release:        0.11%{?eln:.eln%{eln}}
+Release:        0.2%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -279,6 +279,11 @@ done
 
 
 %changelog
+* Wed Feb 17 2021 Mohan Boddu <mboddu@bhujji.com> - 35-0.2
+- Support $releasever=rawhide on Rawhide (kparal)
+- Make archmap entries mandatory, except symlinks (kparal)
+- Fixing F36 key
+
 * Tue Feb 09 2021 Tomas Hrcka <thrcka@redhat.com> - 35-0.1
 - Setup for rawhide being F35
 
