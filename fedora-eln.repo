@@ -11,7 +11,7 @@
 # testing and troubleshooting for development packages in conjunction
 # with new test releases.
 #
-# More information is available at http://fedoraproject.org/wiki/Testing 
+# More information is available at http://fedoraproject.org/wiki/Testing
 #
 # Reproducible and reportable issues should be filed at
 # http://bugzilla.redhat.com/.
@@ -22,7 +22,7 @@
 name=Fedora - ELN BaseOS - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/BaseOS/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=1
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
@@ -59,7 +59,7 @@ skip_if_unavailable=False
 name=Fedora - ELN AppStream - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/AppStream/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=1
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
@@ -89,4 +89,3 @@ type=rpm
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
-
