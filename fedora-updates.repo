@@ -2,7 +2,7 @@
 name=Fedora $releasever - $basearch - Updates
 #baseurl=http://download.example/pub/fedora/linux/updates/$releasever/Everything/$basearch/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
-enabled=1
+enabled=AUTO_VALUE
 countme=1
 repo_gpgcheck=0
 type=rpm
