@@ -11,7 +11,7 @@
 # testing and troubleshooting for development packages in conjunction
 # with new test releases.
 #
-# More information is available at http://fedoraproject.org/wiki/Testing 
+# More information is available at http://fedoraproject.org/wiki/Testing
 #
 # Reproducible and reportable issues should be filed at
 # http://bugzilla.redhat.com/.
@@ -23,13 +23,13 @@
 name=Fedora - Modular Rawhide - Developmental packages for the next Fedora release
 #baseurl=http://download.example/pub/fedora/linux/development/rawhide/Modular/$basearch/os/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular&arch=$basearch
-enabled=0
+enabled=AUTO_VALUE
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
 type=rpm
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch AUTO_VALUE
 skip_if_unavailable=False
 
 [rawhide-modular-debuginfo]
@@ -37,10 +37,11 @@ name=Fedora - Modular Rawhide - Debug
 #baseurl=http://download.example/pub/fedora/linux/development/rawhide/Modular/$basearch/debug/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular-debug&arch=$basearch
 enabled=0
+metadata_expire=6h
 repo_gpgcheck=0
 type=rpm
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch AUTO_VALUE
 skip_if_unavailable=False
 
 [rawhide-modular-source]
@@ -48,9 +49,9 @@ name=Fedora - Modular Rawhide - Source
 #baseurl=http://download.example/pub/fedora/linux/development/rawhide/Modular/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-modular-source&arch=$basearch
 enabled=0
+metadata_expire=6h
 repo_gpgcheck=0
 type=rpm
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch AUTO_VALUE
 skip_if_unavailable=False
-
