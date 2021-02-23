@@ -29,7 +29,7 @@ metadata_expire=6h
 repo_gpgcheck=0
 type=rpm
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch AUTO_VALUE
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch AUTO_VALUE
 skip_if_unavailable=False
 
 [rawhide-modular-debuginfo]
@@ -41,7 +41,7 @@ metadata_expire=6h
 repo_gpgcheck=0
 type=rpm
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch AUTO_VALUE
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch AUTO_VALUE
 skip_if_unavailable=False
 
 [rawhide-modular-source]
@@ -53,5 +53,5 @@ metadata_expire=6h
 repo_gpgcheck=0
 type=rpm
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch AUTO_VALUE
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch AUTO_VALUE
 skip_if_unavailable=False
