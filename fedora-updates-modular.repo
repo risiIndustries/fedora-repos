@@ -2,7 +2,7 @@
 name=Fedora Modular $releasever - $basearch - Updates
 #baseurl=http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f$releasever&arch=$basearch
-enabled=0
+enabled=AUTO_VALUE
 countme=1
 repo_gpgcheck=0
 type=rpm

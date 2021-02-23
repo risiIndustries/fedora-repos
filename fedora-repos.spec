@@ -1,4 +1,5 @@
 %global rawhide_release 35
+%global updates_testing_enabled 0
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
@@ -106,6 +107,9 @@ Summary:        Rawhide repo definitions
 Requires:       fedora-repos = %{version}-%{release}
 Obsoletes:      fedora-repos-rawhide < 33-0.7
 
+%description rawhide
+This package provides the rawhide repo definitions.
+
 %package archive
 Summary:        Fedora updates archive package repository
 Requires:       fedora-repos = %{version}-%{release}
@@ -114,9 +118,6 @@ Requires:       fedora-repos = %{version}-%{release}
 This package provides the repo definition for the updates archive repo.
 It is a package repository that contains any RPM that has made it to
 stable in Bodhi and been available in the Fedora updates repo in the past.
-
-%description rawhide
-This package provides the rawhide repo definitions.
 
 %package rawhide-modular
 Summary:        Rawhide modular repo definitions
@@ -187,20 +188,51 @@ done
 ln -s RPM-GPG-KEY-fedora-%{version}-primary RPM-GPG-KEY-%{version}-fedora
 popd
 
+# Install repo files
+install -d -m 755 $RPM_BUILD_ROOT/etc/yum.repos.d
+for file in %{_sourcedir}/fedora*repo ; do
+  install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
+done
+
+# Enable or disable repos based on current release cycle state.
+%if %{rawhide_release} == %{version}
+rawhide_enabled=1
+stable_enabled=0
+testing_enabled=0
+%else
+rawhide_enabled=0
+stable_enabled=1
+testing_enabled=%{updates_testing_enabled}
+%endif
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
+    sed -i "s/^enabled=AUTO_VALUE$/enabled=${rawhide_enabled}/" $repo || exit 1
+done
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora{,-modular,-updates,-updates-modular}.repo; do
+    sed -i "s/^enabled=AUTO_VALUE$/enabled=${stable_enabled}/" $repo || exit 1
+done
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-updates-testing{,-modular}.repo; do
+    sed -i "s/^enabled=AUTO_VALUE$/enabled=${testing_enabled}/" $repo || exit 1
+done
+
 # Adjust Rawhide repo files to include Rawhide+1 GPG key.
 # This is necessary for the period when Rawhide gets bumped to N+1 and packages
 # start to be signed with a newer key. Without having the key specified in the
 # repo file, the system would consider the new packages as untrusted.
 rawhide_next=$((%{rawhide_release}+1))
-for repo in %{_sourcedir}/fedora-rawhide*.repo; do
-    sed -ir "s@^gpgkey=.*@& file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-${rawhide_next}-\$basearch@" \
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
+    sed -i "/^gpgkey=/ s@AUTO_VALUE@file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-${rawhide_next}-\$basearch@" \
         $repo || exit 1
 done
 
-# Install repo files
-install -d -m 755 $RPM_BUILD_ROOT/etc/yum.repos.d
-for file in %{_sourcedir}/fedora*repo ; do
-  install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
+# Set appropriate metadata_expire in base repo files (6h before Final, 7d after)
+%if "%{release}" < "1"
+expire_value='6h'
+%else
+expire_value='7d'
+%endif
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora{,-modular}.repo; do
+    sed -i "/^metadata_expire=/ s/AUTO_VALUE/${expire_value}/" \
+        $repo || exit 1
 done
 
 # Install ostree remote config
@@ -210,23 +242,82 @@ install -m 644 %{_sourcedir}/fedora-compose.conf $RPM_BUILD_ROOT/etc/ostree/remo
 
 
 %check
-# assert all rawhide/eln repos are set to enabled only when this is rawhide
-for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
-  %if %{rawhide_release} == %{version}
-    grep 'enabled=1' $repo
-  %else
-    grep 'enabled=1' $repo && exit 1 || :
-  %endif
+# Make sure all repo variables were substituted
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/*.repo; do
+    if grep -q AUTO_VALUE $repo; then
+        echo "ERROR: Repo $repo contains an unsubstituted placeholder value"
+        exit 1
+    fi
 done
 
-# make sure the Rawhide+1 key wasn't forgotten to be created
+# Make sure correct repos were enabled/disabled
+enabled_repos=(fedora-cisco-openh264)
+disabled_repos=(fedora-updates-archive)
+%if %{rawhide_release} == %{version}
+enabled_repos+=(fedora-rawhide fedora-rawhide-modular fedora-eln)
+disabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-modular \
+  fedora-updates-testing fedora-updates-testing-modular)
+%else
+enabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-modular)
+disabled_repos+=(fedora-rawhide fedora-rawhide-modular fedora-eln)
+%if %{updates_testing_enabled}
+enabled_repos+=(fedora-updates-testing fedora-updates-testing-modular)
+%else
+disabled_repos+=(fedora-updates-testing fedora-updates-testing-modular)
+%endif
+%endif
+
+for repo in ${enabled_repos[@]}; do
+    if ! grep -q 'enabled=1' $RPM_BUILD_ROOT/etc/yum.repos.d/${repo}.repo; then
+        echo "ERROR: Repo $repo should have been enabled, but it isn't"
+        exit 1
+    fi
+done
+
+for repo in ${disabled_repos[@]}; do
+    if grep -q 'enabled=1' $RPM_BUILD_ROOT/etc/yum.repos.d/${repo}.repo; then
+        echo "ERROR: Repo $repo should have been disabled, but it isn't"
+        exit 1
+    fi
+done
+
+# Make sure updates-testing is not enabled in a Final (stable) release
+%if "%{release}" >= "1"
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-updates-testing{,-modular}.repo; do
+    if grep -q 'enabled=1' $repo; then
+        echo "ERROR: Repo $repo should be disabled in a stable release, but it isn't"
+        exit 1
+    fi
+done
+%endif
+
+# Make sure metadata_expire was correctly set
+%if "%{release}" < "1"
+expire_value='6h'
+%else
+expire_value='7d'
+%endif
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora{,-modular}.repo; do
+    lines=$(grep '^metadata_expire=' $repo | sort | uniq)
+    if [ "$(echo "$lines" | wc -l)" -ne 1 ]; then
+        echo "ERROR: Non-matching metadata_expire lines in $repo: $lines"
+        exit 1
+    fi
+    if test "$lines" != "metadata_expire=${expire_value}"; then
+        echo "ERROR: Wrong metadata_expire value in $repo: $lines"
+        exit 1
+    fi
+done
+
+# Make sure the Rawhide+1 key wasn't forgotten to be created
 rawhide_next=$((%{rawhide_release}+1))
+test -n "$rawhide_next" || exit 1
 if ! test -f $RPM_BUILD_ROOT/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-${rawhide_next}-primary; then
     echo "ERROR: GPG key for Fedora ${rawhide_next} is not present"
     exit 1
 fi
 
-# make sure the Rawhide+1 key is present in Rawhide repo files
+# Make sure the Rawhide+1 key is present in Rawhide repo files
 for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
     gpg_lines=$(grep '^gpgkey=' $repo)
     if test -z "$gpg_lines"; then
