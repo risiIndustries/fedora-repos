@@ -1,10 +1,10 @@
 %global rawhide_release 35
-%global updates_testing_enabled 1
+%global updates_testing_enabled 0
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        34
-Release:        0.14%{?eln:.eln%{eln}}
+Release:        1%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -370,6 +370,10 @@ done
 
 
 %changelog
+* Mon Apr 12 2021 Mohan Boddu <mboddu@bhujji.com> - 34-1
+- Setup for F34 Final
+- Disable testing repos
+
 * Mon Feb 22 2021 Kamil Páral <kparal@redhat.com> - 34-0.14
 - Sync changes from Rawhide (the rawhide gpg symlink), disable ELN repo
 
