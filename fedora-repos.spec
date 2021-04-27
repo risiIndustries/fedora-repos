@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        33
-Release:        4%{?_module_build:%{?dist}}
+Release:        5%{?_module_build:%{?dist}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -200,10 +200,12 @@ done
 rawhide_enabled=1
 stable_enabled=0
 testing_enabled=0
+archive_enabled=0
 %else
 rawhide_enabled=0
 stable_enabled=1
 testing_enabled=%{updates_testing_enabled}
+archive_enabled=1
 %endif
 for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
     sed -i "s/^enabled=AUTO_VALUE$/enabled=${rawhide_enabled}/" $repo || exit 1
@@ -213,6 +215,9 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora{,-modular,-updates,-updates-m
 done
 for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-updates-testing{,-modular}.repo; do
     sed -i "s/^enabled=AUTO_VALUE$/enabled=${testing_enabled}/" $repo || exit 1
+done
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-updates-archive.repo; do
+    sed -i "s/^enabled=AUTO_VALUE$/enabled=${archive_enabled}/" $repo || exit 1
 done
 
 # Adjust Rawhide repo files to include Rawhide+1 GPG key.
@@ -253,13 +258,14 @@ done
 
 # Make sure correct repos were enabled/disabled
 enabled_repos=(fedora-cisco-openh264)
-disabled_repos=(fedora-updates-archive)
+disabled_repos=()
 %if %{rawhide_release} == %{version}
 enabled_repos+=(fedora-rawhide fedora-rawhide-modular fedora-eln)
-disabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-modular \
-  fedora-updates-testing fedora-updates-testing-modular)
+disabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-archive \
+  fedora-updates-modular fedora-updates-testing fedora-updates-testing-modular)
 %else
-enabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-modular)
+enabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-archive \
+  fedora-updates-modular)
 disabled_repos+=(fedora-rawhide fedora-rawhide-modular fedora-eln)
 %if %{updates_testing_enabled}
 enabled_repos+=(fedora-updates-testing fedora-updates-testing-modular)
@@ -371,6 +377,9 @@ done
 
 
 %changelog
+* Wed Apr 28 2021 Dusty Mabe <dusty@dustymabe.com> - 33-5
+- Enable the updates archive repo on non-rawhide.
+
 * Mon Feb 22 2021 Kamil Páral <kparal@redhat.com> - 33-4
 - Sync with Rawhide (mostly gpg keys)
 
