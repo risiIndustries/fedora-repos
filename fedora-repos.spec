@@ -1,10 +1,10 @@
-%global rawhide_release 35
+%global rawhide_release 36
 %global updates_testing_enabled 0
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        35
-Release:        0.4%{?eln:.eln%{eln}}
+Version:        36
+Release:        0.1%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -391,6 +391,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Aug 10 2021 Tomas Hrcka <thrcka@redhat.com> - 36-0.1
+- Setup for rawhide being F36
+
 * Wed Apr 28 2021 Dusty Mabe <dusty@dustymabe.com> - 35-0.4
 - Enable the updates archive repo on non-rawhide.
 
