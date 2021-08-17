@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        35
-Release:        0.5%{?eln:.eln%{eln}}
+Release:        0.6%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -392,6 +392,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Aug 17 2021 Adam Williamson <awilliam@redhat.com> - 35-0.6
+- Remove spurious space in RPM-GPG-KEY-fedora-37-primary (cgwalters)
+
 * Tue Aug 10 2021 Tomas Hrcka <thrcka@redhat.com> - 35-0.5
 - Update Rawhide definition, enable updates-testing for Branched
 
