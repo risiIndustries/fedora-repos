@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        36
-Release:        0.2%{?eln:.eln%{eln}}
+Release:        0.3%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -392,7 +392,7 @@ rm -f "$TMPRING"
 
 
 %changelog
-* Tue Aug 10 2021 Tomas Hrcka <thrcka@redhat.com> - 36-0.2
+* Tue Aug 10 2021 Tomas Hrcka <thrcka@redhat.com> - 36-0.3
 - Setup for rawhide being F36
 
 * Wed Apr 28 2021 Dusty Mabe <dusty@dustymabe.com> - 35-0.4
