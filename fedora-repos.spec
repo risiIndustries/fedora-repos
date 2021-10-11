@@ -1,10 +1,10 @@
 %global rawhide_release 36
-%global updates_testing_enabled 1
+%global updates_testing_enabled 0
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        35
-Release:        0.6%{?eln:.eln%{eln}}
+Release:        1%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -392,6 +392,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Mon Oct 11 2021 Kevin Fenzi <kevin@scrye.com> - 35-1
+- Disable updates-testing for GA. (#2012948)
+
 * Tue Aug 17 2021 Adam Williamson <awilliam@redhat.com> - 35-0.6
 - Remove spurious space in RPM-GPG-KEY-fedora-37-primary (cgwalters)
 
