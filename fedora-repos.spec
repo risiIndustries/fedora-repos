@@ -394,6 +394,7 @@ rm -f "$TMPRING"
 %changelog
 * Tue Feb 08 2022 Tomas Hrcka <thrcka@redhat.com> - 37-0.1
 - Setup for rawhide being F37
+- Adding F38 key
 
 * Tue Aug 17 2021 Tomas Hrcka <thrcka@redhat.com> - 36-0.3
 - Remove spurious space in RPM-GPG-KEY-fedora-37-primary (cgwalters)
