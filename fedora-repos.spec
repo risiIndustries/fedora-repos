@@ -1,10 +1,10 @@
-%global rawhide_release 36
+%global rawhide_release 37
 %global updates_testing_enabled 0
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        36
-Release:        0.3%{?eln:.eln%{eln}}
+Version:        37
+Release:        0.1%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -392,6 +392,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Feb 08 2022 Tomas Hrcka <thrcka@redhat.com> - 37-0.1
+- Setup for rawhide being F37
+
 * Tue Aug 17 2021 Tomas Hrcka <thrcka@redhat.com> - 36-0.3
 - Remove spurious space in RPM-GPG-KEY-fedora-37-primary (cgwalters)
 
