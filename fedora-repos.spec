@@ -77,6 +77,7 @@ Source54:       RPM-GPG-KEY-fedora-34-primary
 Source55:       RPM-GPG-KEY-fedora-35-primary
 Source56:       RPM-GPG-KEY-fedora-36-primary
 Source57:       RPM-GPG-KEY-fedora-37-primary
+Source58:       RPM-GPG-KEY-fedora-38-primary
 # When bumping Rawhide to fN, create N+1 key (and update archmap). (This
 # ensures users have the next future key installed and referenced, even if they
 # don't update very often. This will smooth out Rawhide N->N+1 transition for them).
@@ -394,6 +395,7 @@ rm -f "$TMPRING"
 %changelog
 * Tue Feb 08 2022 Tomas Hrcka <thrcka@redhat.com> - 36-0.4
 - Update Rawhide definition, enable updates-testing for Branched
+- Adding F38 key
 
 * Tue Aug 17 2021 Tomas Hrcka <thrcka@redhat.com> - 36-0.3
 - Remove spurious space in RPM-GPG-KEY-fedora-37-primary (cgwalters)
