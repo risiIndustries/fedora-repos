@@ -1,10 +1,10 @@
 %global rawhide_release 37
-%global updates_testing_enabled 1
+%global updates_testing_enabled 0
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        36
-Release:        0.4%{?eln:.eln%{eln}}
+Release:        1%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -393,6 +393,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Mon Apr 11 2022 Mohan Boddu <mboddu@bhujji.com> - 36-1
+- Disable updates testing repos for F36 GA (#2073950)
+
 * Tue Feb 08 2022 Tomas Hrcka <thrcka@redhat.com> - 36-0.4
 - Update Rawhide definition, enable updates-testing for Branched
 - Adding F38 key
