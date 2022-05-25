@@ -149,12 +149,11 @@ where client's system will pull OSTree updates.
 
 %package eln
 Summary: ELN repo definitions
-Requires: fedora-repos-rawhide = %{version}-%{release}
 
 %description eln
 This package provides repository files for ELN (Enterprise Linux Next)
-packages that can be installed atop Rawhide. Note that these packages are
-experimental and should not be used in a production environment.
+packages. Note that these packages are experimental and should not be used
+in a production environment.
 
 
 %prep
@@ -199,18 +198,26 @@ for file in %{_sourcedir}/fedora*repo ; do
 done
 
 # Enable or disable repos based on current release cycle state.
-%if %{rawhide_release} == %{version}
+%if 0%{?eln}
+rawhide_enabled=0
+stable_enabled=0
+testing_enabled=0
+archive_enabled=0
+eln_enabled=1
+%elif %{rawhide_release} == %{version}
 rawhide_enabled=1
 stable_enabled=0
 testing_enabled=0
 archive_enabled=0
+eln_enabled=0
 %else
 rawhide_enabled=0
 stable_enabled=1
 testing_enabled=%{updates_testing_enabled}
 archive_enabled=1
+eln_enabled=0
 %endif
-for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-{rawhide,eln}*.repo; do
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
     sed -i "s/^enabled=AUTO_VALUE$/enabled=${rawhide_enabled}/" $repo || exit 1
 done
 for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora{,-modular,-updates,-updates-modular}.repo; do
@@ -221,6 +228,9 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-updates-testing{,-modular}.re
 done
 for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-updates-archive.repo; do
     sed -i "s/^enabled=AUTO_VALUE$/enabled=${archive_enabled}/" $repo || exit 1
+done
+for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-eln*.repo; do
+    sed -i "s/^enabled=AUTO_VALUE$/enabled=${eln_enabled}/" $repo || exit 1
 done
 
 # Adjust Rawhide repo files to include Rawhide+1 GPG key.
@@ -260,16 +270,21 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/*.repo; do
 done
 
 # Make sure correct repos were enabled/disabled
-enabled_repos=(fedora-cisco-openh264)
+enabled_repos=()
 disabled_repos=()
-%if %{rawhide_release} == %{version}
-enabled_repos+=(fedora-rawhide fedora-rawhide-modular fedora-eln)
+
+%if 0%{?eln}
+enabled_repos+=(fedora-eln)
+disabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-archive \
+  fedora-updates-modular fedora-updates-testing fedora-updates-testing-modular)
+%elif %{rawhide_release} == %{version}
+enabled_repos+=(fedora-rawhide fedora-rawhide-modular fedora-cisco-openh264)
 disabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-archive \
   fedora-updates-modular fedora-updates-testing fedora-updates-testing-modular)
 %else
 enabled_repos+=(fedora fedora-modular fedora-updates fedora-updates-archive \
   fedora-updates-modular)
-disabled_repos+=(fedora-rawhide fedora-rawhide-modular fedora-eln)
+disabled_repos+=(fedora-rawhide fedora-rawhide-modular)
 %if %{updates_testing_enabled}
 enabled_repos+=(fedora-updates-testing fedora-updates-testing-modular)
 %else
