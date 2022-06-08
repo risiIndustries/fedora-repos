@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        37
-Release:        0.2%{?eln:.eln%{eln}}
+Release:        0.3%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -408,6 +408,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Wed Jun 08 2022 Stephen Gallagher <sgallagh@redhat.com> - 37-0.3
+- ELN: don't enable layered product repos by default
+
 * Wed May 25 2022 Stephen Gallagher <sgallagh@redhat.com> - 37-0.2
 - Rework Fedora ELN repositories
 

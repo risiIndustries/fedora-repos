@@ -179,7 +179,7 @@ skip_if_unavailable=False
 name=Fedora - ELN HighAvailability - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/HighAvailability/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=AUTO_VALUE
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
@@ -218,7 +218,7 @@ skip_if_unavailable=False
 name=Fedora - ELN ResilientStorage - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/ResilientStorage/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=AUTO_VALUE
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
@@ -257,7 +257,7 @@ skip_if_unavailable=False
 name=Fedora - ELN RT - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/RT/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=AUTO_VALUE
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
@@ -296,7 +296,7 @@ skip_if_unavailable=False
 name=Fedora - ELN NFV - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/NFV/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=AUTO_VALUE
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
@@ -335,7 +335,7 @@ skip_if_unavailable=False
 name=Fedora - ELN SAP - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/SAP/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=AUTO_VALUE
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
@@ -374,7 +374,7 @@ skip_if_unavailable=False
 name=Fedora - ELN SAPHANA - Developmental packages for the next Enterprise Linux release
 baseurl=https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/SAPHANA/$basearch/os/
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=eln&arch=$basearch
-enabled=AUTO_VALUE
+enabled=0
 countme=1
 metadata_expire=6h
 repo_gpgcheck=0
