@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        35
-Release:        1%{?eln:.eln%{eln}}
+Release:        2%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -77,6 +77,8 @@ Source54:       RPM-GPG-KEY-fedora-34-primary
 Source55:       RPM-GPG-KEY-fedora-35-primary
 Source56:       RPM-GPG-KEY-fedora-36-primary
 Source57:       RPM-GPG-KEY-fedora-37-primary
+Source58:       RPM-GPG-KEY-fedora-38-primary
+Source59:       RPM-GPG-KEY-fedora-39-primary
 # When bumping Rawhide to fN, create N+1 key (and update archmap). (This
 # ensures users have the next future key installed and referenced, even if they
 # don't update very often. This will smooth out Rawhide N->N+1 transition for them).
@@ -392,6 +394,10 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Aug 09 2022 Tomas Hrcka <thrcka@redhat.com> - 35-2
+- Update rawhide definition
+- Add f38 & f39 keys
+
 * Mon Oct 11 2021 Kevin Fenzi <kevin@scrye.com> - 35-1
 - Disable updates-testing for GA. (#2012948)
 
