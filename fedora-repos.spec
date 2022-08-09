@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        35
-Release:        2%{?eln:.eln%{eln}}
+Release:        3%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -394,6 +394,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Aug 09 2022 Tomas Hrcka <thrcka@redhat.com> - 35-3
+- Updated archmap
+
 * Tue Aug 09 2022 Tomas Hrcka <thrcka@redhat.com> - 35-2
 - Update rawhide definition
 - Add f38 & f39 keys
