@@ -1,10 +1,10 @@
-%global rawhide_release 37
-%global updates_testing_enabled 0
+%global rawhide_release 38
+%global updates_testing_enabled 1
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        37
-Release:        0.3%{?eln:.eln%{eln}}
+Release:        0.4%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -78,6 +78,7 @@ Source55:       RPM-GPG-KEY-fedora-35-primary
 Source56:       RPM-GPG-KEY-fedora-36-primary
 Source57:       RPM-GPG-KEY-fedora-37-primary
 Source58:       RPM-GPG-KEY-fedora-38-primary
+Source59:       RPM-GPG-KEY-fedora-39-primary
 # When bumping Rawhide to fN, create N+1 key (and update archmap). (This
 # ensures users have the next future key installed and referenced, even if they
 # don't update very often. This will smooth out Rawhide N->N+1 transition for them).
@@ -408,6 +409,11 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Aug 09 2022 Tomas Hrcka <thrcka@redhat.com> - 37-0.4
+- Setup for rawhide being F38
+- Adding F39 key
+- enable updates-testing for Branched
+
 * Wed Jun 08 2022 Stephen Gallagher <sgallagh@redhat.com> - 37-0.3
 - ELN: don't enable layered product repos by default
 
