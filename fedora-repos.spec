@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        37
-Release:        0.5%{?eln:.eln%{eln}}
+Release:        0.6%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -409,6 +409,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Aug 16 2022 Adam Williamson <awilliam@redhat.com> - 37.0-6
+- Fix RPM-GPG-KEY-fedora-39-primary (dustymabe)
+
 * Tue Aug 09 2022 Tomas Hrcka <thrcka@redhat.com> - 37-0.5
 - updated archmap
 
