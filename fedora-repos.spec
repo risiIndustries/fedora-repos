@@ -4,7 +4,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        38
-Release:        0.2%{?eln:.eln%{eln}}
+Release:        0.3%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -408,6 +408,12 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Tue Aug 16 2022 Adam Williamson <awilliam@redhat.com> - 38.0-3
+- Fix RPM-GPG-KEY-fedora-39-primary (dustymabe)
+
+* Tue Aug 09 2022 Tomas Hrcka <thrcka@redhat.com> - 38-0.2
+- Drop armhfp from archmap on f38,f39
+
 * Tue Aug 09 2022 Tomas Hrcka <thrcka@redhat.com> - 38-0.1
 - Setup for rawhide being F38
 - Adding F39 key
