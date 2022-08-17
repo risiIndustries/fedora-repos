@@ -17,7 +17,7 @@ Requires:       fedora-repos-rawhide = %{version}-%{release}
 Requires:       fedora-gpg-keys >= %{version}-%{release}
 BuildArch:      noarch
 # Required by %%check
-BuildRequires:  gnupg sed
+BuildRequires:  gnupg sed rpm
 
 Source1:        archmap
 Source2:        fedora.repo
@@ -357,14 +357,17 @@ for repo in $RPM_BUILD_ROOT/etc/yum.repos.d/fedora-rawhide*.repo; do
     done <<< "$gpg_lines"
 done
 
-# Check arch keys exists on supported architectures
+# Check arch keys exists on supported architectures, and RPM considers
+# them valid
 TMPRING=$(mktemp)
+DBPATH=$(mktemp -d)
 for VER in %{version} %{rawhide_release} ${rawhide_next}; do
   echo -n > "$TMPRING"
   for ARCH in $(sed -ne "s/^fedora-${VER}-primary://p" %{_sourcedir}/archmap)
   do
     gpg --no-default-keyring --keyring="$TMPRING" \
       --import $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-fedora-$VER-$ARCH
+    rpm --dbpath "$DBPATH" --import $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-fedora-$VER-$ARCH --test
   done
   # Ensure some arch key was imported
   gpg --no-default-keyring --keyring="$TMPRING" --list-keys | grep -A 2 '^pub\s'
