@@ -1,10 +1,10 @@
 %global rawhide_release 38
-%global updates_testing_enabled 1
+%global updates_testing_enabled 0
 
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        37
-Release:        0.6%{?eln:.eln%{eln}}
+Release:        1%{?eln:.eln%{eln}}
 License:        MIT
 URL:            https://fedoraproject.org/
 
@@ -409,6 +409,9 @@ rm -f "$TMPRING"
 
 
 %changelog
+* Mon Oct 10 2022 Kevin Fenzi <kevin@scrye.com> - 37-1
+- Setup for f37 release. rhbz#2133425
+
 * Tue Aug 16 2022 Adam Williamson <awilliam@redhat.com> - 37.0-6
 - Fix RPM-GPG-KEY-fedora-39-primary (dustymabe)
 
