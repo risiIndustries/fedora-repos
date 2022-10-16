@@ -10,6 +10,7 @@ gpgcheck=1
 metadata_expire=6h
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
+excludes=dnf-plugins-core shadow-utils zsh systemd fedora-repos gnome-initial-setup
 
 [updates-debuginfo]
 name=Fedora $releasever - $basearch - Updates - Debug

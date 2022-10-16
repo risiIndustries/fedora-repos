@@ -10,6 +10,7 @@ type=rpm
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
+excludes=dnf-plugins-core shadow-utils zsh systemd fedora-repos gnome-initial-setup
 
 [fedora-debuginfo]
 name=Fedora $releasever - $basearch - Debug
