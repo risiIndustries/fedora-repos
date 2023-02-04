@@ -31,6 +31,7 @@ type=rpm
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch AUTO_VALUE
 skip_if_unavailable=False
+excludes=shadow-utils zsh fedora-repos gnome-initial-setup
 
 [rawhide-debuginfo]
 name=Fedora - Rawhide - Debug
